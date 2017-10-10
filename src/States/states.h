@@ -6,10 +6,9 @@
 //
 //
 
-#ifndef ruletaThingsHappen_states_h
-#define ruletaThingsHappen_states_h
+#ifndef states_h
+#define states_h
 
 #include "standbyState.h"
-
 #include "calibState.h"
 #endif

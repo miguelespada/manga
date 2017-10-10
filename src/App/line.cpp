@@ -45,3 +45,15 @@ void Line::draw(){
     ofPopMatrix();
     ofPopStyle();
 }
+
+string Line::toString(){
+    string s = "";
+    for(int i = 0; i < BOARD_SIZE; i++){
+        if(board[i])
+            s+= '1';
+        else
+            s += '0';
+    }
+    return s;
+    
+}

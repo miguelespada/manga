@@ -1,4 +1,5 @@
 #include "board.h"
+#include "assets.h"
 
 Board::Board(){
     for(int i = 0; i < ROWS; i++)
@@ -70,6 +71,14 @@ int Board::getNumRows(){
     return ROWS;
 }
 
-string Board::serializeRows(){
-    return "abc";
+string Board::toString(){
+    string s = "";
+    
+    for(int i = 0; i < ROWS; i++){
+        s += ofToString(Assets::getInstance()->getMidiNote(i));
+        s += ",";
+        s += board[i].toString();
+        s += ";";
+    }
+    return s;
 }

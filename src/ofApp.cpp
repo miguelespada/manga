@@ -13,6 +13,8 @@ void ofApp::setup(){
     
     app = new App();
     app->setCurrentState(new StandbyState(app));
+    
+    
     osc = new OscAdapter(app);
     serial = new SerialAdapter(app);
     midi = new MidiAdapter(app);

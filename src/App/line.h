@@ -32,6 +32,8 @@ public:
     void toggle(int i);
     void set(int i, bool v);
     bool get(int i);
+    
+    string toString();
 };
 
 

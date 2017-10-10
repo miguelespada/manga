@@ -36,7 +36,7 @@ public:
     
     int getNumRows();
     
-    string serializeRows();
+    string toString();
 };
 
 

@@ -20,7 +20,6 @@ httpAdapter::httpAdapter(App *a){
     
     lastTime = ofGetElapsedTimef();
     
-    
     ofAddListener(ofEvents().keyPressed, this, &httpAdapter::keyPressed);
 }
 
@@ -32,7 +31,6 @@ void httpAdapter::update(ofEventArgs &args){
         bOnline = true;
         ofLogNotice() << "Predictor is online";
     }
-
 }
 
 bool httpAdapter::isOnline(){
@@ -61,7 +59,7 @@ void httpAdapter::predict(string board){
 
 void httpAdapter::keyPressed(ofKeyEventArgs& eventArgs){
     if (eventArgs.key == 'p') {
-        string board = app->board.serializeRows();
+        string board = app->board.toString();
         predict(board);
     }
 }
