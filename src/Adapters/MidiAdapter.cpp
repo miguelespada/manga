@@ -51,7 +51,7 @@ void MidiAdapter::newMidiMessage(ofxMidiMessage& msg) {
     
         app->board.setCursor(ofMap(subBeat, 0, totalSamplers, 0, 1));
         
-        if(app->board.get(subBeat / SUBSAMPLERS) && subBeat % SUBSAMPLERS == 0){
+        if(app->board.get(0, subBeat / SUBSAMPLERS) && subBeat % SUBSAMPLERS == 0){
             midiOut.sendNoteOn(10, 38,  80);
             midiOut.sendNoteOff(10, 38,  80);
         }

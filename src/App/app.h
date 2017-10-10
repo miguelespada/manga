@@ -16,6 +16,8 @@ public:
     void keyPressed (int key);
     void drawBoard(int x, int y);
     Board  board;
+    
+    void mousePressed(int x, int y, int button);
 };
 
 

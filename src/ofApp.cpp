@@ -35,11 +35,14 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
-    
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     app->draw();
 }
+
+void ofApp::mousePressed(int x, int y, int button){
+    app->mousePressed(x, y, button);
+}
+    

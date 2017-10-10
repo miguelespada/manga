@@ -1,41 +1,38 @@
-//
-//  board.hpp
-//  mangaPlayer
-//
-//  Created by miguel on 05/10/2017.
-//
-//
+
+
 
 #ifndef board_hpp
 #define board_hpp
 
 #include "ofMain.h"
+#include "line.h"
 
-#define BOARD_SIZE 12
+#define ROWS 6
 
 class Board
 {
     
-    bool board[BOARD_SIZE];
+    Line board[ROWS];
+    
+    ofPoint anchor;
     
 public:
     Board();
     ~Board(){};
     
-    void draw();
-    void toggle(int i);
-    void set(int i, bool v);
+    void draw(int x, int y);
     
-    string toString();
-    bool get(int i);
+    void toggle(int j, int i);
+    void set(int j,  int i, bool v);
+    bool get(int j,  int i);
     
     void drawCursor();
     void setCursor(float c);
-    
     float cursor = 0;
     
     int getSize();
     
+    void click(int x, int y, float scale);
 };
 
 

@@ -5,18 +5,13 @@ App::App():BaseApp(){
 }
 
 void App::drawBoard(int x, int y){
-    
-    ofPushMatrix();
-    ofTranslate(x, y);
-    board.draw();
-    ofPopMatrix();
+    board.draw(x, y);
 }
 
 void App::keyPressed (int key){
     if(isdigit(key)){
-        board.toggle(key - '0');
+        board.toggle(0, key - '0');
     }
-    
     
     switch (key) {
         case 'f':
@@ -31,3 +26,8 @@ void App::keyPressed (int key){
             break;
     }
 }
+
+void App::mousePressed(int x, int y, int button){
+    
+    board.click(x, y, scale);
+};

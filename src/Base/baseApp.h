@@ -19,6 +19,9 @@ public:
     virtual void keyPressed(ofKeyEventArgs& eventArgs);
     void update(ofEventArgs &args);
     virtual void keyPressed(int key)=0;
+    
+    virtual void mousePressed(int x, int y, int button){};
+    
     void update();
     void draw();
     void next();

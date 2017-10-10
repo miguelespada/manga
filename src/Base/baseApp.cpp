@@ -8,7 +8,7 @@ BaseApp::BaseApp(){
     // Register events and actions
     ofAddListener(ofEvents().keyPressed, this, &BaseApp::keyPressed);
     ofAddListener(ofEvents().update, this, &BaseApp::update);
-    
+        
     current_state = NULL;
 }
 

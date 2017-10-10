@@ -14,6 +14,7 @@ class ofApp : public ofBaseApp{
 		void update();
         void draw();
         App *app;
+        void mousePressed(int x, int y, int button);
     
     OscAdapter *osc;
     SerialAdapter *serial;

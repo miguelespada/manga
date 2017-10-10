@@ -61,13 +61,13 @@ void SerialAdapter::update(ofEventArgs &args){
         unsigned char v = bytes[0];
         
         for(int i = 0; i < 8; i ++){
-            app->board.set(i, bool(v % 2));
+            app->board.set(0, i, bool(v % 2));
             v /= 2;
         }
         
         v = bytes[1];
         for(int i = 0; i < 4; i ++){
-            app->board.set(i + 8, bool(v % 2));
+            app->board.set(0, i + 8, bool(v % 2));
             v /= 2;
         }
     }
