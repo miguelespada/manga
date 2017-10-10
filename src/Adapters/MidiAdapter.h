@@ -38,6 +38,8 @@ class MidiAdapter: public ofxMidiListener{
     
     int subBeat;
     
+    void sendNotes();
+    
 public:
     MidiAdapter(App *a);
     

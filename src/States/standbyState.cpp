@@ -12,7 +12,7 @@ void StandbyState::draw(){
     ofSetColor(255);
     ofDrawBitmapString(toString(), 10, 20);
     
-    app->drawBoard(20, 100);
+    app->drawBoard(20, 40);
     
 };
 

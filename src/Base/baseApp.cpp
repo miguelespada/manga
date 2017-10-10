@@ -40,12 +40,7 @@ void BaseApp::draw(){
     ofPushStyle();
     ofPushMatrix();
     
-    if(scale < 1){
-        ofScale(scale, scale);
-        ofSetWindowShape(w * scale, h * scale);
-    }
-    if(current_state)
-        current_state->draw();
+    current_state->draw();
     
     ofPopMatrix();
     ofPopStyle();

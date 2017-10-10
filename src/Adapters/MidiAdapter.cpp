@@ -7,6 +7,7 @@
 //
 
 #include "MidiAdapter.h"
+#include "assets.h"
 
 #define SUBSAMPLERS 5
 
@@ -44,19 +45,22 @@ void MidiAdapter::newMidiMessage(ofxMidiMessage& msg) {
     }
         
     if(msg.getStatusString(msg.status) == "Time Clock"){
-        
         int totalSamplers = app->board.getSize() * SUBSAMPLERS ;
-        
         subBeat = (subBeat + 1) % totalSamplers;
-    
         app->board.setCursor(ofMap(subBeat, 0, totalSamplers, 0, 1));
-        
-        if(app->board.get(0, subBeat / SUBSAMPLERS) && subBeat % SUBSAMPLERS == 0){
-            midiOut.sendNoteOn(10, 38,  80);
-            midiOut.sendNoteOff(10, 38,  80);
+        sendNotes();
+    }
+}
+
+void MidiAdapter::sendNotes(){
+    for(int j = 0; j < app->board.getNumRows(); j ++){
+        if(app->board.get(j, subBeat / SUBSAMPLERS) && subBeat % SUBSAMPLERS == 0){
+            midiOut.sendNoteOn(10, Assets::getInstance()->getMidiNote(j), 80);
+        }
+        else{
+            
+            midiOut.sendNoteOff(10, Assets::getInstance()->getMidiNote(j), 80);
         }
     }
-    
-    
 }
 

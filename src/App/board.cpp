@@ -19,9 +19,9 @@ bool Board::get(int j, int i){
     return board[j].get(i);
 }
 
-void Board::click(int x, int y, float scale = 1){
-    x = (x - anchor.x) / scale;
-    y = (y - anchor.y) / scale;
+void Board::click(int x, int y){
+    x = (x - anchor.x);
+    y = (y - anchor.y);
     
     int i = x / CELL_SIZE;
     int j = y / CELL_SIZE;
@@ -31,16 +31,21 @@ void Board::click(int x, int y, float scale = 1){
 }
 
 void Board::draw(int x, int y){
-
     anchor.x = x;
     anchor.y = y;
     
     ofPushMatrix();
     ofTranslate(anchor);
     for(int i = 0; i < ROWS; i++){
-        ofTranslate(0, CELL_SIZE);
         board[i].draw();
+        ofTranslate(0, CELL_SIZE);
     }
+    
+    ofPopMatrix();
+    ofPushMatrix();
+    ofTranslate(anchor);
+    drawCursor();
+    
     ofPopMatrix();
     
 }
@@ -59,4 +64,8 @@ void Board::setCursor(float c){
 
 int Board::getSize(){
     return BOARD_SIZE;
+}
+
+int Board::getNumRows(){
+    return ROWS;
 }

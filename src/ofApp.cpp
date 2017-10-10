@@ -18,17 +18,11 @@ void ofApp::setup(){
     midi = new MidiAdapter(app);
 //    http = new httpAdapter(app);
     
-    app->w = 1920;
-    app->h = 1080;
     
 #ifdef DEBUG
     ofLogNotice() << ("[OF] debug mode");
-    app->scale = 0.5;
 #else
     ofLogNotice() << "[OF] realease mode";
-    app->toggleFullScreen();
-    ofHideCursor();
-    app->scale = 1;
 #endif
     
 }

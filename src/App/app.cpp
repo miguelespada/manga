@@ -9,11 +9,7 @@ void App::drawBoard(int x, int y){
 }
 
 void App::keyPressed (int key){
-    if(isdigit(key)){
-        board.toggle(0, key - '0');
-    }
-    
-    switch (key) {
+       switch (key) {
         case 'f':
             scale = 1;
             toggleFullScreen();
@@ -28,6 +24,5 @@ void App::keyPressed (int key){
 }
 
 void App::mousePressed(int x, int y, int button){
-    
-    board.click(x, y, scale);
+    board.click(x, y);
 };

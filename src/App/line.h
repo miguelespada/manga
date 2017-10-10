@@ -8,7 +8,7 @@
 
 
 
-#define CELL_SIZE 80
+#define CELL_SIZE 40
 #define BOARD_SIZE 12
 
 #ifndef line_h

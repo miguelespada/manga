@@ -17,6 +17,8 @@ public:
     int getXpos();
     string getServer();
     
+    int getMidiNote(int i);
+    
     
     
 };

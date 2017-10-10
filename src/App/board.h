@@ -32,7 +32,9 @@ public:
     
     int getSize();
     
-    void click(int x, int y, float scale);
+    void click(int x, int y);
+    
+    int getNumRows();
 };
 
 
