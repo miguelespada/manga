@@ -35,6 +35,8 @@ public:
     void click(int x, int y);
     
     int getNumRows();
+    
+    string serializeRows();
 };
 
 

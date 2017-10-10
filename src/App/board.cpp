@@ -69,3 +69,7 @@ int Board::getSize(){
 int Board::getNumRows(){
     return ROWS;
 }
+
+string Board::serializeRows(){
+    return "abc";
+}

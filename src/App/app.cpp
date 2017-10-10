@@ -13,11 +13,10 @@ void App::keyPressed (int key){
         case 'f':
             scale = 1;
             toggleFullScreen();
-            break;
+               break;
         case ' ':
             next();
             break;
-            
         default:
             break;
     }

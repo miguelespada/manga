@@ -25,12 +25,9 @@ int main( ){
     auto mainApp = make_shared<ofApp>();
     auto visualApp = make_shared<VisualApp>();
     
-    
     ofRunApp(visualWindow, visualApp);
     
     visualApp->app = mainApp->app;
-    
-    
     ofRunApp(mainWindow, mainApp);
 
     ofRunMainLoop();
