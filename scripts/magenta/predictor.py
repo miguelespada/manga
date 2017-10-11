@@ -1,3 +1,4 @@
+import magenta
 from flask import Flask
 app = Flask(__name__)
 from flask import jsonify
@@ -12,6 +13,6 @@ def ping():
 def predict(values):
 
   primer = generator.encodePrimer(values)
-  prediction = generator.generate(primer, temperature=1.2)
+  prediction = generator.generate(primer, temperature=1.1)
 
   return jsonify({"prediction": prediction})

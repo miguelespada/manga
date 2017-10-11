@@ -14,6 +14,8 @@ void Board::toggle(int j, int  i){
 
 void Board::set(int j, int i, bool v){
     board[j].set(i, v);
+    
+    lastActivity = ofGetElapsedTimef();
 }
 
 bool Board::get(int j, int i){
@@ -74,11 +76,34 @@ int Board::getNumRows(){
 string Board::toString(){
     string s = "";
     
-    for(int i = 0; i < ROWS; i++){
+    for(int i = 0; i < ROWS / 2; i++){
         s += ofToString(Assets::getInstance()->getMidiNote(i));
         s += ",";
         s += board[i].toString();
         s += ";";
     }
     return s;
+}
+
+int Board::pitchToRow(int pitch){
+    for(int i = 0; i < ROWS; i ++){
+        if(Assets::getInstance()->getMidiNote(i) == pitch) return i;
+    }
+    return -1;
+}
+
+void Board::fromString(string values){
+    vector<string> rows = ofSplitString(values, ";");
+    rows.pop_back();
+    for(auto row: rows){
+        vector<string> notes = ofSplitString(row, ",");
+        int nRow = pitchToRow(ofToInt(notes[0]));
+        for(int i = 0; i < notes[1].size(); i ++){
+            if(notes[1][i] == '1')
+                set(nRow, i, 1);
+            else
+                set(nRow, i, 0);
+        }
+        
+    }
 }

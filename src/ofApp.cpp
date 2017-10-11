@@ -21,6 +21,7 @@ void ofApp::setup(){
     http = new httpAdapter(app);
     
     
+    
 #ifdef DEBUG
     ofLogNotice() << ("[OF] debug mode");
 #else

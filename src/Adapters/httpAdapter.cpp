@@ -53,8 +53,8 @@ bool httpAdapter::isOnline(){
 
 void httpAdapter::predict(string board){
     bool parsingSuccessful = result.open(predictorUrl + board);
-    
-    cout << result.get("ok", "") << endl;
+    string prediction =  result.get("prediction", "").asString();
+    app->board.fromString(prediction);
 }
 
 void httpAdapter::keyPressed(ofKeyEventArgs& eventArgs){

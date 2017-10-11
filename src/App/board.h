@@ -16,6 +16,7 @@ class Board
     
     ofPoint anchor;
     
+    
 public:
     Board();
     ~Board(){};
@@ -37,6 +38,10 @@ public:
     int getNumRows();
     
     string toString();
+    void fromString(string values);
+    int pitchToRow(int pitch);
+    
+    float lastActivity;
 };
 
 
