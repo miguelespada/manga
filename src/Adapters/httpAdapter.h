@@ -18,6 +18,7 @@ class httpAdapter{
     ofxJSONElement result;
     string serviceUrl;
     string predictorUrl;
+    string plannerUrl;
     
     float lastTime;
     
@@ -32,6 +33,9 @@ public:
     
     bool bMustPredict;
     void predict();
+    
+    string serializeChanges(vector<ofPoint> changes);
+    void plan(string changes);
 };
 
 

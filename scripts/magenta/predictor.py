@@ -16,3 +16,8 @@ def predict(values):
   prediction = generator.generate(primer, temperature=1.1)
 
   return jsonify({"prediction": prediction})
+
+
+@app.route('/planner/<changes>')
+def plan(changes):
+  return jsonify({"plan": changes})

@@ -18,6 +18,7 @@ httpAdapter::httpAdapter(App *a){
     
     serviceUrl = baseRoute + "ping";
     predictorUrl = baseRoute + "predict/";
+    plannerUrl = baseRoute + "planner/";
     
     lastTime = ofGetElapsedTimef();
     
@@ -35,7 +36,6 @@ void httpAdapter::update(ofEventArgs &args){
         bOnline = true;
         ofLogNotice() << "Predictor is online";
     }
-    
     
     if(app->board.lastHumanActivity > 0){
         if(ofGetElapsedTimef() - app->board.lastHumanActivity> Assets::getInstance()->getInactivityTime()){
@@ -69,12 +69,23 @@ void httpAdapter::predict(){
     bool parsingSuccessful = result.open(predictorUrl + board);
     string prediction =  result.get("prediction", "").asString();
     vector<ofPoint> changes = app->board.fromPrediction(prediction);
+    plan(serializeChanges(changes));
 }
 
 void httpAdapter::keyPressed(ofKeyEventArgs& eventArgs){
-    if (eventArgs.key == 'p') {
+    if (eventArgs.key == 'p')
         predict();
-    }
 }
 
+string httpAdapter::serializeChanges(vector<ofPoint> changes){
+    string s = "";
+    for(auto c: changes){
+        s += ofToString(c.x) + "," + ofToString(c.y) + ";";
+    }
+    return s;
+}
 
+void httpAdapter::plan(string changes){
+    result.open(plannerUrl + changes);
+    cout << result << endl;
+}

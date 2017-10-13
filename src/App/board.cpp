@@ -119,7 +119,6 @@ vector<ofPoint> Board::fromPrediction(string values){
         vector<string> notes = ofSplitString(row, ",");
         int nRow = pitchToRow(ofToInt(notes[0]));
         for(int i = 0; i < notes[1].size(); i ++){
-            
             bool bChanged = false;
             
             if(notes[1][i] == '1')
