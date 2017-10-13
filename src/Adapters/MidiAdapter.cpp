@@ -20,15 +20,16 @@ MidiAdapter::MidiAdapter(App *a){
     midiIn.openPort(1);
 
     midiIn.ignoreTypes(false, false, false);
-    
     midiIn.addListener(this);
-    
     midiIn.setVerbose(true);
     
     bNote = false;
     initNoteTime = ofGetElapsedTimef();
     
     subBeat = 0;
+    
+    
+    ofAddListener(ofEvents().keyPressed, this, &MidiAdapter::keyPressed);
 }
 
 MidiAdapter::~MidiAdapter(){
@@ -39,12 +40,8 @@ MidiAdapter::~MidiAdapter(){
 
 
 void MidiAdapter::newMidiMessage(ofxMidiMessage& msg) {
-    app->bAbletonOnline = true;
-    
-    if(!bOnline){
-        bOnline = true;
-        
-    }
+    bOnline = true;
+    app->bAbletonOnline = bOnline;
     
     if(msg.getStatusString(msg.status) == "Start"){
         subBeat = 0;
@@ -69,3 +66,8 @@ void MidiAdapter::sendNotes(){
     }
 }
 
+void MidiAdapter::keyPressed(ofKeyEventArgs& eventArgs){
+    if (eventArgs.key == 't') {
+        midiOut.sendControlChange(1, 1, int(ofRandom(0, 127)));
+    }
+}
