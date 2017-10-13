@@ -13,5 +13,6 @@
 #include "calibState.h"
 #include "CheckPredictorConnectionState.h"
 #include "CheckAbletonOnlineState.h"
+#include "CheckArduinoConnectionState.h"
 
 #endif

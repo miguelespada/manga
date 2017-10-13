@@ -4,6 +4,7 @@
 App::App():BaseApp(){
     bPredictorOnline = false;
     bAbletonOnline = false;
+    bArduinoOnline = false;
     midiInstrument = 10;
 }
 

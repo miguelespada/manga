@@ -87,5 +87,4 @@ string httpAdapter::serializeChanges(vector<ofPoint> changes){
 
 void httpAdapter::plan(string changes){
     result.open(plannerUrl + changes);
-    cout << result << endl;
 }

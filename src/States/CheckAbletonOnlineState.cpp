@@ -20,7 +20,7 @@ void CheckAbletonOnlineState::update(){
 
 
 void CheckAbletonOnlineState::next(){
-    app->setCurrentState(new StandbyState(app));
+    app->setCurrentState(new CheckArduinoConnectionState(app));
     delete this;
 };
 

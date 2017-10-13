@@ -21,6 +21,7 @@ public:
     
     bool bPredictorOnline;
     bool bAbletonOnline;
+    bool bArduinoOnline;
     
     int midiInstrument;
     

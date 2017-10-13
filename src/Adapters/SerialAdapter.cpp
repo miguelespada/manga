@@ -18,7 +18,8 @@ SerialAdapter::~SerialAdapter(){
 }
 
 void SerialAdapter::update(ofEventArgs &args){
-
+    
+    app->bArduinoOnline = bOnline;
     
     int bytesRequired = 2;
     unsigned char bytes[bytesRequired];
