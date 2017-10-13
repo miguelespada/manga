@@ -3,6 +3,7 @@
 
 App::App():BaseApp(){
     bPredictorOnline = false;
+    bAbletonOnline = false;
 }
 
 void App::drawBoard(int x, int y){

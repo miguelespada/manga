@@ -20,6 +20,8 @@ public:
     void mousePressed(int x, int y, int button);
     
     bool bPredictorOnline;
+    bool bAbletonOnline;
+    
 };
 
 

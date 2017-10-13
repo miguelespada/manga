@@ -22,6 +22,8 @@ void StandbyState::draw(){
 };
 
 void StandbyState::update(){
+    if(!app->bPredictorOnline)
+        app->setCurrentState(new CheckPredictorConnectionState(app));
 };
 
 

@@ -37,7 +37,6 @@ void httpAdapter::update(ofEventArgs &args){
     }
     
     
-    
     if(app->board.lastHumanActivity > 0){
     if(ofGetElapsedTimef() - app->board.lastHumanActivity> Assets::getInstance()->getInactivityTime()){
         predict();
@@ -64,7 +63,6 @@ bool httpAdapter::isOnline(){
         else {
             ofLogNotice()  << "Failed to parse JSON";
             bOnline = false;
-            app->setCurrentState(new CheckPredictorConnectionState(app));
             return false;
         }
     }

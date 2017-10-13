@@ -12,5 +12,6 @@
 #include "standbyState.h"
 #include "calibState.h"
 #include "CheckPredictorConnectionState.h"
+#include "CheckAbletonOnlineState.h"
 
 #endif

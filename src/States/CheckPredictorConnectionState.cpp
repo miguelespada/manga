@@ -20,7 +20,7 @@ void CheckPredictorConnectionState::update(){
 
 
 void CheckPredictorConnectionState::next(){
-    app->setCurrentState(new StandbyState(app));
+    app->setCurrentState(new CheckAbletonOnlineState(app));
     delete this;
 };
 

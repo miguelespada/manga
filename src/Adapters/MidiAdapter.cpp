@@ -39,6 +39,12 @@ MidiAdapter::~MidiAdapter(){
 
 
 void MidiAdapter::newMidiMessage(ofxMidiMessage& msg) {
+    app->bAbletonOnline = true;
+    
+    if(!bOnline){
+        bOnline = true;
+        
+    }
     
     if(msg.getStatusString(msg.status) == "Start"){
         subBeat = 0;
@@ -58,7 +64,6 @@ void MidiAdapter::sendNotes(){
             midiOut.sendNoteOn(10, Assets::getInstance()->getMidiNote(j), 80);
         }
         else{
-            
             midiOut.sendNoteOff(10, Assets::getInstance()->getMidiNote(j), 80);
         }
     }
