@@ -30,7 +30,8 @@ public:
     void update(ofEventArgs &args);
     bool isOnline();
     
-    void predict(string board);
+    bool bMustPredict;
+    void predict();
 };
 
 

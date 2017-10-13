@@ -2,6 +2,7 @@
 
 
 App::App():BaseApp(){
+    bPredictorOnline = false;
 }
 
 void App::drawBoard(int x, int y){

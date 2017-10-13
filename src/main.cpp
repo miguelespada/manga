@@ -20,14 +20,14 @@ int main( ){
     settings.width = 600;
     settings.height = 400;
     settings.setPosition(ofVec2f(0,0));
-    auto visualWindow = ofCreateWindow(settings);
+//    auto visualWindow = ofCreateWindow(settings);
     
     auto mainApp = make_shared<ofApp>();
-    auto visualApp = make_shared<VisualApp>();
+//    auto visualApp = make_shared<VisualApp>();
     
-    ofRunApp(visualWindow, visualApp);
+//    ofRunApp(visualWindow, visualApp);
     
-    visualApp->app = mainApp->app;
+//    visualApp->app = mainApp->app;
     ofRunApp(mainWindow, mainApp);
 
     ofRunMainLoop();

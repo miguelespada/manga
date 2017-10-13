@@ -6,16 +6,27 @@ Board::Board(){
         board[i] = Line();
     
     cursor = 0;
+    lastMachineActivity = -1;
+    unsetHumanActivity();
 }
 
 void Board::toggle(int j, int  i){
     board[j].set(i, !board[j].get(i));
+    setHumanActivity();
 }
 
 void Board::set(int j, int i, bool v){
     board[j].set(i, v);
+    setHumanActivity();
     
-    lastActivity = ofGetElapsedTimef();
+}
+
+void Board::setHumanActivity(){
+    lastHumanActivity = ofGetElapsedTimef();
+}
+
+void Board::unsetHumanActivity(){
+    lastHumanActivity = -1;
 }
 
 bool Board::get(int j, int i){
@@ -28,7 +39,6 @@ void Board::click(int x, int y){
     
     int i = x / CELL_SIZE;
     int j = y / CELL_SIZE;
-    
     
     toggle(j, i);
 }
@@ -50,7 +60,6 @@ void Board::draw(int x, int y){
     drawCursor();
     
     ofPopMatrix();
-    
 }
 
 void Board::drawCursor(){
@@ -85,12 +94,14 @@ string Board::toString(){
     return s;
 }
 
+
 int Board::pitchToRow(int pitch){
     for(int i = 0; i < ROWS; i ++){
         if(Assets::getInstance()->getMidiNote(i) == pitch) return i;
     }
     return -1;
 }
+
 
 void Board::fromString(string values){
     vector<string> rows = ofSplitString(values, ";");
@@ -100,9 +111,9 @@ void Board::fromString(string values){
         int nRow = pitchToRow(ofToInt(notes[0]));
         for(int i = 0; i < notes[1].size(); i ++){
             if(notes[1][i] == '1')
-                set(nRow, i, 1);
+                board[nRow].set(i, 1);
             else
-                set(nRow, i, 0);
+                board[nRow].set(i, 0);
         }
         
     }

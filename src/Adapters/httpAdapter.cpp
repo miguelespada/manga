@@ -7,6 +7,7 @@
 //
 
 #include "httpAdapter.h"
+#include "states.h"
 
 httpAdapter::httpAdapter(App *a){
     app = a;
@@ -21,16 +22,33 @@ httpAdapter::httpAdapter(App *a){
     lastTime = ofGetElapsedTimef();
     
     ofAddListener(ofEvents().keyPressed, this, &httpAdapter::keyPressed);
+    bMustPredict = false;
 }
 
 httpAdapter::~httpAdapter(){
 }
 
 void httpAdapter::update(ofEventArgs &args){
+    app->bPredictorOnline = bOnline;
+    
     if(isOnline() && !bOnline){
         bOnline = true;
         ofLogNotice() << "Predictor is online";
     }
+    
+    
+    
+    if(app->board.lastHumanActivity > 0){
+    if(ofGetElapsedTimef() - app->board.lastHumanActivity> Assets::getInstance()->getInactivityTime()){
+        predict();
+        app->board.lastHumanActivity = -1;
+    }
+    }
+    
+       
+//    if(ofGetElapsedTimef() -  app->board.lastActivity > Assets::getInstance()->getMaxIdleTime() && !bMustPredict){
+//        predict();
+//    }
 }
 
 bool httpAdapter::isOnline(){
@@ -46,12 +64,14 @@ bool httpAdapter::isOnline(){
         else {
             ofLogNotice()  << "Failed to parse JSON";
             bOnline = false;
+            app->setCurrentState(new CheckPredictorConnectionState(app));
             return false;
         }
     }
 }
 
-void httpAdapter::predict(string board){
+void httpAdapter::predict(){
+    string board = app->board.toString();
     bool parsingSuccessful = result.open(predictorUrl + board);
     string prediction =  result.get("prediction", "").asString();
     app->board.fromString(prediction);
@@ -59,8 +79,7 @@ void httpAdapter::predict(string board){
 
 void httpAdapter::keyPressed(ofKeyEventArgs& eventArgs){
     if (eventArgs.key == 'p') {
-        string board = app->board.toString();
-        predict(board);
+        predict();
     }
 }
 

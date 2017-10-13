@@ -16,6 +16,13 @@ string Assets::getServer(){
     return getData("server").asString();
 }
 
+int Assets::getInactivityTime(){
+    return 1;
+}
+
+int Assets::getMaxIdleTime(){
+    return 10;
+}
 
 int Assets::getMidiNote(int i){
     switch (i) {

@@ -11,4 +11,6 @@
 
 #include "standbyState.h"
 #include "calibState.h"
+#include "CheckPredictorConnectionState.h"
+
 #endif

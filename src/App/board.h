@@ -41,7 +41,11 @@ public:
     void fromString(string values);
     int pitchToRow(int pitch);
     
-    float lastActivity;
+    float lastHumanActivity;
+    float lastMachineActivity;
+    
+    void setHumanActivity();
+    void unsetHumanActivity();
 };
 
 

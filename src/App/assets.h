@@ -19,6 +19,8 @@ public:
     
     int getMidiNote(int i);
     
+    int getInactivityTime();
+    int getMaxIdleTime();
     
     
 };
