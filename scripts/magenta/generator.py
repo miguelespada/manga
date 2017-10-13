@@ -21,10 +21,13 @@ humanNotes = [36, 45, 46]
 machineNotes = [38, 48, 51]
 mapping = {}
 
+# mapping[42] = 51
+# mapping[49] = -1
+# mapping[50] = 48
+
 mapping[42] = 51
 mapping[49] = -1
 mapping[50] = 48
-
 
 def binNotes(notes, length = 0.125):
     beats = notes[-1].start / length

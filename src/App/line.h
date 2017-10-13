@@ -30,7 +30,7 @@ public:
     void draw();
     
     void toggle(int i);
-    void set(int i, bool v);
+    bool set(int i, bool v);
     bool get(int i);
     
     string toString();

@@ -58,10 +58,10 @@ void MidiAdapter::newMidiMessage(ofxMidiMessage& msg) {
 void MidiAdapter::sendNotes(){
     for(int j = 0; j < app->board.getNumRows(); j ++){
         if(app->board.get(j, subBeat / SUBSAMPLERS) && subBeat % SUBSAMPLERS == 0){
-            midiOut.sendNoteOn(10, Assets::getInstance()->getMidiNote(j), 80);
+            midiOut.sendNoteOn(app->midiInstrument, Assets::getInstance()->getMidiNote(j), 80);
         }
         else{
-            midiOut.sendNoteOff(10, Assets::getInstance()->getMidiNote(j), 80);
+            midiOut.sendNoteOff(app->midiInstrument, Assets::getInstance()->getMidiNote(j), 80);
         }
     }
 }

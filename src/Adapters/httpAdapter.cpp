@@ -38,16 +38,12 @@ void httpAdapter::update(ofEventArgs &args){
     
     
     if(app->board.lastHumanActivity > 0){
-    if(ofGetElapsedTimef() - app->board.lastHumanActivity> Assets::getInstance()->getInactivityTime()){
-        predict();
-        app->board.lastHumanActivity = -1;
-    }
+        if(ofGetElapsedTimef() - app->board.lastHumanActivity> Assets::getInstance()->getInactivityTime()){
+            predict();
+            app->board.lastHumanActivity = -1;
+        }
     }
     
-       
-//    if(ofGetElapsedTimef() -  app->board.lastActivity > Assets::getInstance()->getMaxIdleTime() && !bMustPredict){
-//        predict();
-//    }
 }
 
 bool httpAdapter::isOnline(){
@@ -72,7 +68,7 @@ void httpAdapter::predict(){
     string board = app->board.toString();
     bool parsingSuccessful = result.open(predictorUrl + board);
     string prediction =  result.get("prediction", "").asString();
-    app->board.fromString(prediction);
+    vector<ofPoint> changes = app->board.fromPrediction(prediction);
 }
 
 void httpAdapter::keyPressed(ofKeyEventArgs& eventArgs){

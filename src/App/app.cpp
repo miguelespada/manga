@@ -4,6 +4,7 @@
 App::App():BaseApp(){
     bPredictorOnline = false;
     bAbletonOnline = false;
+    midiInstrument = 10;
 }
 
 void App::drawBoard(int x, int y){
@@ -11,16 +12,25 @@ void App::drawBoard(int x, int y){
 }
 
 void App::keyPressed (int key){
+    if(isalnum(key)){
+        if(key == '0')
+            midiInstrument = 10;
+        else
+            midiInstrument = key - '0';
+        
+    }
+    else{
        switch (key) {
         case 'f':
             scale = 1;
             toggleFullScreen();
                break;
-        case ' ':
-            next();
-            break;
+           case ' ':
+               next();
+               break;
         default:
             break;
+       }
     }
 }
 

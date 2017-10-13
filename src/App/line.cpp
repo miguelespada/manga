@@ -10,8 +10,12 @@ void Line::toggle(int i){
     board[i] = !board[i];
 }
 
-void Line::set(int i, bool v){
-    board[i] = v;
+bool Line::set(int i, bool v){
+    if( board[i] != v){
+        board[i] = v;
+        return true;
+    }
+    return false;
 }
 
 bool Line::get(int i){

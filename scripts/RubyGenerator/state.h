@@ -10,7 +10,7 @@ class <%= name %>State: public BaseState
     
 public:
     <%= name %>State(App *a);
-    ~<%= name %>State();
+    <%= name %>State();
     std::string toString() { return "<%= name %>"; }
     void update();
     void draw();

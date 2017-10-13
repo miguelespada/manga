@@ -11,11 +11,8 @@
 
 class Board
 {
-    
     Line board[ROWS];
-    
     ofPoint anchor;
-    
     
 public:
     Board();
@@ -38,7 +35,7 @@ public:
     int getNumRows();
     
     string toString();
-    void fromString(string values);
+    vector<ofPoint>  fromPrediction(string values);
     int pitchToRow(int pitch);
     
     float lastHumanActivity;
@@ -46,6 +43,8 @@ public:
     
     void setHumanActivity();
     void unsetHumanActivity();
+    
+    int lastNumberOfChanges;
 };
 
 

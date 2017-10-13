@@ -34,11 +34,16 @@ bool Board::get(int j, int i){
 }
 
 void Board::click(int x, int y){
+    
+    
     x = (x - anchor.x);
     y = (y - anchor.y);
     
     int i = x / CELL_SIZE;
     int j = y / CELL_SIZE;
+    
+    if(x < 0 || y < 0 || x > CELL_SIZE * BOARD_SIZE || y > CELL_SIZE * ROWS )
+        return;
     
     toggle(j, i);
 }
@@ -103,18 +108,34 @@ int Board::pitchToRow(int pitch){
 }
 
 
-void Board::fromString(string values){
+vector<ofPoint> Board::fromPrediction(string values){
     vector<string> rows = ofSplitString(values, ";");
     rows.pop_back();
+    
+    vector<ofPoint> changes;
+    lastNumberOfChanges = 0;
+    
     for(auto row: rows){
         vector<string> notes = ofSplitString(row, ",");
         int nRow = pitchToRow(ofToInt(notes[0]));
         for(int i = 0; i < notes[1].size(); i ++){
+            
+            bool bChanged = false;
+            
             if(notes[1][i] == '1')
-                board[nRow].set(i, 1);
+                bChanged = board[nRow].set(i, 1);
             else
-                board[nRow].set(i, 0);
+                bChanged = board[nRow].set(i, 0);
+            
+            if(bChanged){
+                lastMachineActivity = ofGetElapsedTimef();
+                changes.push_back(ofPoint(nRow, i));
+            }
         }
         
     }
+    
+    
+    lastNumberOfChanges = changes.size();
+    return changes;
 }

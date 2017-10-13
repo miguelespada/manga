@@ -12,13 +12,16 @@ void StandbyState::draw(){
     ofSetColor(255);
     ofDrawBitmapString(toString(), 10, 20);
     
-    if( app->board.lastHumanActivity > 0)
+    if(app->board.lastHumanActivity > 0)
         ofDrawBitmapString("Last human activity: " + ofToString(ofGetElapsedTimef() - app->board.lastHumanActivity, 1), 100, 20);
     
-    if( app->board.lastMachineActivity > 0)
+    if(app->board.lastMachineActivity > 0)
         ofDrawBitmapString("Last machine activity: " + ofToString(ofGetElapsedTimef() - app->board.lastMachineActivity, 1), 100, 40);
     
-    app->drawBoard(20, 60);
+    ofDrawBitmapString("Last number of changes: " + ofToString(app->board.lastNumberOfChanges), 100, 60);
+    
+    
+    app->drawBoard(20, 80);
 };
 
 void StandbyState::update(){
