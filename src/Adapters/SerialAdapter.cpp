@@ -11,6 +11,7 @@ SerialAdapter::SerialAdapter(App *a){
     
     serial.setup(0, 9600);
     serial.flush();
+    prevTempo = -1;
 }
 
 SerialAdapter::~SerialAdapter(){
@@ -18,22 +19,34 @@ SerialAdapter::~SerialAdapter(){
 }
 
 void SerialAdapter::update(ofEventArgs &args){
-    
     app->bArduinoOnline = bOnline;
-    
-    int bytesRequired = 2;
-    unsigned char bytes[bytesRequired];
-    int bytesRemaining = bytesRequired;
+    sendTempo();
+    readBoard();
+}
 
-    if ( serial.available() > 0 ){
+void SerialAdapter::sendTempo(){
+    uint8 time = int(ofMap(app->board.cursor, 0, 1, 0, 49));
+    
+    if(prevTempo != time){
+        serial.writeByte(time);
+        prevTempo = time;
+    }
+    
+}
+
+void SerialAdapter::readBoard(){
+
+    while ( serial.available() > 0 ){
+        int bytesRequired = 3;
+        unsigned char bytes[bytesRequired];
+        int bytesRemaining = bytesRequired;
         
         unsigned char c = -1;
         while(serial.readByte() != c){
-            
         }
         
         if(!bOnline){
-            ofLog() << "Sync..";
+            ofLog() << "Sync.. arduino";
             bOnline = true;
         }
         
@@ -51,25 +64,41 @@ void SerialAdapter::update(ofEventArgs &args){
                 }
                 else if ( result == OF_SERIAL_NO_DATA )
                 {
-                
                 }
                 else {
                     bytesRemaining -= result;
                 }
             }
         }
-        
-        unsigned char v = bytes[0];
-        
-        for(int i = 0; i < 8; i ++){
-            app->board.set(0, i, bool(v % 2));
-            v /= 2;
-        }
-        
-        v = bytes[1];
-        for(int i = 0; i < 4; i ++){
-            app->board.set(0, i + 8, bool(v % 2));
-            v /= 2;
-        }
+        updateBoard(bytes);
     }
 }
+
+void SerialAdapter::updateBoard(unsigned char bytes[]){
+    int channel = int(bytes[0]);
+    unsigned char v = bytes[1];
+    for(int i = 0; i < 8; i ++){
+        app->board.set(channel, i, bool(v % 2));
+        v /= 2;
+    }
+    v = bytes[2];
+    
+    for(int i = 0; i < 4; i ++){
+        app->board.set(channel, i + 8, bool(v % 2));
+        v /= 2;
+    }
+    if(channel == 4){
+        app->extras[0] = bool(v % 2);
+        v /= 2;
+        app->extras[1] = bool(v % 2);
+        v /= 2;
+    }
+    
+    if(channel == 1){
+        app->extras[2] = bool(v % 2);
+        v /= 2;
+        app->extras[3] = bool(v % 2);
+        v /= 2;
+    }
+}
+

@@ -16,10 +16,11 @@ void ofApp::setup(){
     app->setCurrentState(new CheckPredictorConnectionState(app));
     
     
-    osc = new OscAdapter(app);
+ //   osc = new OscAdapter(app);
     serial = new SerialAdapter(app);
     midi = new MidiAdapter(app);
-    http = new httpAdapter(app);
+    //   http = new httpAdapter(app);
+    robot = new RobotAdapter(app);
     
     
 #ifdef DEBUG

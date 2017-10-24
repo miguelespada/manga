@@ -30,6 +30,8 @@ MidiAdapter::MidiAdapter(App *a){
     
     
     ofAddListener(ofEvents().keyPressed, this, &MidiAdapter::keyPressed);
+    
+    app->bAbletonOnline = bOnline;
 }
 
 MidiAdapter::~MidiAdapter(){

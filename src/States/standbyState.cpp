@@ -10,22 +10,23 @@ StandbyState::~StandbyState(){
 void StandbyState::draw(){
     ofBackground(0);
     ofSetColor(255);
-    ofDrawBitmapString(toString(), 10, 20);
     
     if(app->board.lastHumanActivity > 0)
-        ofDrawBitmapString("Last human activity: " + ofToString(ofGetElapsedTimef() - app->board.lastHumanActivity, 1), 100, 20);
+        ofDrawBitmapString("Last human activity: " + ofToString(ofGetElapsedTimef() - app->board.lastHumanActivity, 1), 20, 20);
     
     if(app->board.lastMachineActivity > 0)
-        ofDrawBitmapString("Last machine activity: " + ofToString(ofGetElapsedTimef() - app->board.lastMachineActivity, 1), 100, 40);
+        ofDrawBitmapString("Last machine activity: " + ofToString(ofGetElapsedTimef() - app->board.lastMachineActivity, 1), 20, 40);
     
-    ofDrawBitmapString("Last number of changes: " + ofToString(app->board.lastNumberOfChanges), 100, 60);
+    ofDrawBitmapString("Last number of changes: " + ofToString(app->board.lastNumberOfChanges), 20, 60);
     
-    
+    ofDrawBitmapString("Midi instrument [0..9]: " + ofToString(app->midiInstrument), 280, 20);
+
     app->drawBoard(20, 80);
+    app->drawExtras(40, 350);
 };
 
 void StandbyState::update(){
-    if(!app->bPredictorOnline)
+    if(!app->online())
         app->setCurrentState(new CheckPredictorConnectionState(app));
 };
 

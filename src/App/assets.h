@@ -14,6 +14,9 @@ public:
     void loadAssets();
     
     int getLocalPort();
+    string getRemoteHost();
+    int getRemotePort();
+    
     int getXpos();
     string getServer();
     
@@ -21,8 +24,6 @@ public:
     
     int getInactivityTime();
     int getMaxIdleTime();
-    
-    
 };
 
 #endif

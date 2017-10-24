@@ -24,6 +24,14 @@ int Assets::getMaxIdleTime(){
     return 10;
 }
 
+int Assets::getRemotePort(){
+    return getData("remote_port").asInt();
+}
+
+string Assets::getRemoteHost(){
+    return getData("remote_host").asString();
+}
+
 int Assets::getMidiNote(int i){
     switch (i) {
         case 0:

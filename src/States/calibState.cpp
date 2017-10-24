@@ -8,8 +8,8 @@ CalibState::~CalibState(){
 };
 
 void CalibState::draw(){
-    ofBackground(0);
-    ofSetColor(255);
+    ofBackground(255);
+    ofSetColor(20);
     ofDrawBitmapString(toString(), 10, 20);
 };
 

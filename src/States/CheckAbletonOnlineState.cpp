@@ -8,8 +8,8 @@ CheckAbletonOnlineState::~CheckAbletonOnlineState(){
 };
 
 void CheckAbletonOnlineState::draw(){
-    ofBackground(255);
-    ofSetColor(0);
+    ofBackground(0);
+    ofSetColor(255);
     ofDrawBitmapString(toString(), 10, 10);
     ofDrawBitmapString("Ableton not running or paused...", 10, 40);
 };

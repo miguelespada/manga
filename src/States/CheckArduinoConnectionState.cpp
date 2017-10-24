@@ -8,13 +8,14 @@ CheckArduinoConnectionState::~CheckArduinoConnectionState(){
 };
 
 void CheckArduinoConnectionState::draw(){
-    ofBackground(0);
-    ofSetColor(255);
+    ofBackground(255);
+    ofSetColor(0);
     ofDrawBitmapString(toString(), 10, 10);
+    ofDrawBitmapString("Arduino not running or paused...", 10, 40);
 };
 
 void CheckArduinoConnectionState::update(){
-    next();
+    if(app->bArduinoOnline) next();
 };
 
 

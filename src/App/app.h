@@ -22,8 +22,14 @@ public:
     bool bPredictorOnline;
     bool bAbletonOnline;
     bool bArduinoOnline;
+    bool bRobotOnline;
     
     int midiInstrument;
+    
+    bool online();
+    
+    bool extras[4];
+    void drawExtras(int x, int y);
     
     
 };

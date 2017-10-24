@@ -18,6 +18,7 @@ OscAdapter::OscAdapter(App *a){
     ofLogNotice() << "listening for osc messages on port " << localPort;
     bOnline = false;
     ofAddListener(ofEvents().update, this, &OscAdapter::update);
+    app->bRobotOnline = bOnline;
 }
 
 OscAdapter::~OscAdapter(){
@@ -25,10 +26,13 @@ OscAdapter::~OscAdapter(){
 }
 
 void OscAdapter::update(ofEventArgs &args){
+    
+    app->bRobotOnline = bOnline;
+    
     while(receiver->hasWaitingMessages()){
         ofxOscMessage m;
-        bOnline = true;
         receiver->getNextMessage(&m);
         if(m.getAddress() == "/reset") app->reset();
+        if(m.getAddress() == "/ping") bOnline = true;
     }
 }

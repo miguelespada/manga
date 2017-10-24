@@ -16,9 +16,10 @@ void Board::toggle(int j, int  i){
 }
 
 void Board::set(int j, int i, bool v){
-    board[j].set(i, v);
-    setHumanActivity();
-    
+    if(board[j].get(i) != v){
+        board[j].set(i, v);
+        setHumanActivity();
+    }
 }
 
 void Board::setHumanActivity(){
@@ -34,8 +35,6 @@ bool Board::get(int j, int i){
 }
 
 void Board::click(int x, int y){
-    
-    
     x = (x - anchor.x);
     y = (y - anchor.y);
     
@@ -133,8 +132,6 @@ vector<ofPoint> Board::fromPrediction(string values){
         }
         
     }
-    
-    
     lastNumberOfChanges = changes.size();
     return changes;
 }

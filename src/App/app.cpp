@@ -2,23 +2,37 @@
 
 
 App::App():BaseApp(){
-    bPredictorOnline = false;
-    bAbletonOnline = false;
-    bArduinoOnline = false;
+    bPredictorOnline = true;
+    bAbletonOnline = true;
+    bArduinoOnline = true;
+    bRobotOnline = true;
     midiInstrument = 10;
+    
+    for(int i = 0; i < 4; i ++){
+        extras[i] = false;
+    }
 }
 
 void App::drawBoard(int x, int y){
     board.draw(x, y);
 }
 
+void App::drawExtras(int x, int y){
+    
+    for(int i = 0; i < 4; i ++){
+        ofSetColor(255, 0, 0);
+        if(extras[i])
+            ofSetColor(0, 0, 255);
+        ofDrawCircle(x + i * 25, y, 10);
+    }
+}
+
 void App::keyPressed (int key){
-    if(isalnum(key)){
+    if(key >= '0' && key <= '9'){
         if(key == '0')
             midiInstrument = 10;
         else
             midiInstrument = key - '0';
-        
     }
     else{
        switch (key) {
@@ -37,4 +51,8 @@ void App::keyPressed (int key){
 
 void App::mousePressed(int x, int y, int button){
     board.click(x, y);
+}
+
+bool App::online(){
+    return bArduinoOnline && bPredictorOnline && bAbletonOnline && bRobotOnline;
 };

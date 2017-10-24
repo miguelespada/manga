@@ -8,8 +8,8 @@ CheckPredictorConnectionState::~CheckPredictorConnectionState(){
 };
 
 void CheckPredictorConnectionState::draw(){
-    ofBackground(255);
-    ofSetColor(0);
+    ofBackground(0);
+    ofSetColor(255);
     ofDrawBitmapString(toString(), 10, 10);
     ofDrawBitmapString("Predictor service not connected...", 10, 40);
 };
