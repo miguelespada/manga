@@ -17,8 +17,8 @@ void ofApp::setup(){
     
     
  //   osc = new OscAdapter(app);
-   serial = new SerialAdapter(app);
-    midi = new MidiAdapter(app);
+  // serial = new SerialAdapter(app);
+   // midi = new MidiAdapter(app);
     http = new httpAdapter(app);
   //  robot = new RobotAdapter(app);
     

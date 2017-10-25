@@ -11,11 +11,12 @@
 
 
 OscSender::OscSender(){
-    int localPort = Assets::getInstance()->getLocalPort();
+    int remotePort = Assets::getInstance()->getControllerPort();
+    string remoteHost = Assets::getInstance()->getControllerHost();
     sender = new ofxOscSender();
     
-    sender->setup("localhost", localPort);
-    ofLog() << "Sending OSC to " << localPort << endl;
+    sender->setup(remoteHost, remotePort);
+    ofLog() << "Sending OSC to " << remoteHost << ":" << remotePort << endl;
 }
 
 OscSender::~OscSender(){
@@ -31,8 +32,16 @@ void OscSender::sendPath(string path){
 
 void OscSender::sendTestAll(){
 }
+
 void OscSender::sendZero(){
+    ofxOscMessage msg;
+    msg.setAddress("/zero");
+    sender->sendMessage(msg);
+    
 }
 
 void OscSender::sendTestTwo(){
+    ofxOscMessage msg;
+    msg.setAddress("/one");
+    sender->sendMessage(msg);
 }

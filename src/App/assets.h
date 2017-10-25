@@ -17,6 +17,10 @@ public:
     string getRemoteHost();
     int getRemotePort();
     
+    
+    string getControllerHost();
+    int getControllerPort();
+    
     int getXpos();
     string getServer();
     

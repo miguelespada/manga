@@ -11,7 +11,7 @@
 
 httpAdapter::httpAdapter(App *a){
     app = a;
-    bOnline = false;
+    bOnline = true;
     ofAddListener(ofEvents().update, this, &httpAdapter::update);
     
     string baseRoute = "http://127.0.0.1:5000/";
@@ -33,7 +33,7 @@ httpAdapter::~httpAdapter(){
 
 void httpAdapter::update(ofEventArgs &args){
     app->bPredictorOnline = bOnline;
-    
+    /*
     if(isOnline() && !bOnline){
         bOnline = true;
         ofLogNotice() << "Predictor is online";
@@ -44,7 +44,7 @@ void httpAdapter::update(ofEventArgs &args){
             predict();
             app->board.lastHumanActivity = -1;
         }
-    }
+    }*/
 }
 
 bool httpAdapter::isOnline(){
@@ -76,6 +76,12 @@ void httpAdapter::predict(){
 void httpAdapter::keyPressed(ofKeyEventArgs& eventArgs){
     if (eventArgs.key == 'p')
         predict();
+    
+    if (eventArgs.key == 'z')
+        oscSender->sendZero();
+    
+    if (eventArgs.key == 'x')
+        oscSender->sendTestTwo();
 }
 
 string httpAdapter::serializeChanges(vector<ofPoint> changes){
