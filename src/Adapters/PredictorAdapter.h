@@ -19,7 +19,6 @@ class PredictorAdapter{
     ofxJSONElement result;
     string serviceUrl;
     string predictorUrl;
-    string plannerUrl;
     
     float lastTime;
     

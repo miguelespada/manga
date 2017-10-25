@@ -14,11 +14,10 @@ PredictorAdapter::PredictorAdapter(App *a){
     bOnline = false;
     ofAddListener(ofEvents().update, this, &PredictorAdapter::update);
     
-    string baseRoute = "http://127.0.0.1:5000/";
+    string baseRoute = "http://" + Assets::getInstance()->getControllerHost() + ":5000/";
     
     serviceUrl = baseRoute + "ping";
     predictorUrl = baseRoute + "predict/";
-    plannerUrl = baseRoute + "planner/";
     
     lastTime = ofGetElapsedTimef();
     
@@ -40,7 +39,7 @@ void PredictorAdapter::update(ofEventArgs &args){
     }
     
     if(app->board.lastHumanActivity > 0){
-        if(ofGetElapsedTimef() - app->board.lastHumanActivity> Assets::getInstance()->getInactivityTime()){
+        if(ofGetElapsedTimef() - app->board.lastHumanActivity > Assets::getInstance()->getInactivityTime()){
             predict();
             app->board.lastHumanActivity = -1;
         }
@@ -69,7 +68,7 @@ void PredictorAdapter::predict(){
     string board = app->board.toString();
     bool parsingSuccessful = result.open(predictorUrl + board);
     string prediction =  result.get("prediction", "").asString();
-    vector<ofPoint> changes = app->board.fromPrediction(prediction);
+    vector<ofPoint> changes = app->board.fromPrediction(prediction, Assets::getInstance()->getAutoUpdatePredictions());
     plan(serializeChanges(changes));
 }
 
@@ -93,5 +92,7 @@ string PredictorAdapter::serializeChanges(vector<ofPoint> changes){
 }
 
 void PredictorAdapter::plan(string changes){
+    
+    ofLog() << "Sending changes " << changes;
     oscSender->sendPath(changes);
 }			

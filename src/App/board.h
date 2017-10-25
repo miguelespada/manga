@@ -36,7 +36,7 @@ public:
     
     string toString();
     
-    vector<ofPoint>  fromPrediction(string values);
+    vector<ofPoint>  fromPrediction(string values,  bool bAutoUpdate);
     int pitchToRow(int pitch);
     
     float lastHumanActivity;

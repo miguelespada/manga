@@ -17,7 +17,7 @@ string Assets::getServer(){
 }
 
 int Assets::getInactivityTime(){
-    return 1;
+    return getData("inactivityTime").asInt();;
 }
 
 int Assets::getMaxIdleTime(){
@@ -39,6 +39,9 @@ string Assets::getControllerHost(){
     return getData("controller_host").asString();
 }
 
+bool Assets::getAutoUpdatePredictions(){
+    return getData("updatePredictions").asBool();
+}
 
 int Assets::getMidiNote(int i){
     switch (i) {
