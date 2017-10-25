@@ -76,6 +76,12 @@ void httpAdapter::predict(){
 void httpAdapter::keyPressed(ofKeyEventArgs& eventArgs){
     if (eventArgs.key == 'p')
         predict();
+    
+    if (eventArgs.key == 'z')
+        oscSender->sendZero();
+    
+    if (eventArgs.key == 'x')
+        oscSender->sendTestTwo();
 }
 
 string httpAdapter::serializeChanges(vector<ofPoint> changes){

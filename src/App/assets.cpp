@@ -31,6 +31,14 @@ int Assets::getRemotePort(){
 string Assets::getRemoteHost(){
     return getData("remote_host").asString();
 }
+int Assets::getControllerPort(){
+    return getData("controller_port").asInt();
+}
+
+string Assets::getControllerHost(){
+    return getData("controller_host").asString();
+}
+
 
 int Assets::getMidiNote(int i){
     switch (i) {
