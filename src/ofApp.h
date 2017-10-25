@@ -5,7 +5,7 @@
 #include "OscAdapter.h"
 #include "SerialAdapter.h"
 #include "MidiAdapter.h"
-#include "httpAdapter.h"
+#include "PredictorAdapter.h"
 #include "RobotAdapter.h"
 
 class ofApp : public ofBaseApp{
@@ -20,7 +20,7 @@ class ofApp : public ofBaseApp{
     OscAdapter *osc;
     SerialAdapter *serial;
     MidiAdapter *midi;
-    httpAdapter *http;
+    PredictorAdapter *predictor;
     RobotAdapter *robot;
     
 		

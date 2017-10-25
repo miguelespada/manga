@@ -6,13 +6,13 @@
 //
 //
 
-#include "httpAdapter.h"
+#include "PredictorAdapter.h"
 #include "states.h"
 
-httpAdapter::httpAdapter(App *a){
+PredictorAdapter::PredictorAdapter(App *a){
     app = a;
     bOnline = false;
-    ofAddListener(ofEvents().update, this, &httpAdapter::update);
+    ofAddListener(ofEvents().update, this, &PredictorAdapter::update);
     
     string baseRoute = "http://127.0.0.1:5000/";
     
@@ -22,16 +22,16 @@ httpAdapter::httpAdapter(App *a){
     
     lastTime = ofGetElapsedTimef();
     
-    ofAddListener(ofEvents().keyPressed, this, &httpAdapter::keyPressed);
+    ofAddListener(ofEvents().keyPressed, this, &PredictorAdapter::keyPressed);
     bMustPredict = false;
     
     oscSender = new OscSender();
 }
 
-httpAdapter::~httpAdapter(){
+PredictorAdapter::~PredictorAdapter(){
 }
 
-void httpAdapter::update(ofEventArgs &args){
+void PredictorAdapter::update(ofEventArgs &args){
     app->bPredictorOnline = bOnline;
     
     if(isOnline() && !bOnline){
@@ -47,7 +47,7 @@ void httpAdapter::update(ofEventArgs &args){
     }
 }
 
-bool httpAdapter::isOnline(){
+bool PredictorAdapter::isOnline(){
     if(ofGetElapsedTimef() - lastTime > 3){
 
         lastTime = ofGetElapsedTimef();
@@ -65,7 +65,7 @@ bool httpAdapter::isOnline(){
     }
 }
 
-void httpAdapter::predict(){
+void PredictorAdapter::predict(){
     string board = app->board.toString();
     bool parsingSuccessful = result.open(predictorUrl + board);
     string prediction =  result.get("prediction", "").asString();
@@ -73,7 +73,7 @@ void httpAdapter::predict(){
     plan(serializeChanges(changes));
 }
 
-void httpAdapter::keyPressed(ofKeyEventArgs& eventArgs){
+void PredictorAdapter::keyPressed(ofKeyEventArgs& eventArgs){
     if (eventArgs.key == 'p')
         predict();
     
@@ -84,7 +84,7 @@ void httpAdapter::keyPressed(ofKeyEventArgs& eventArgs){
         oscSender->sendTestTwo();
 }
 
-string httpAdapter::serializeChanges(vector<ofPoint> changes){
+string PredictorAdapter::serializeChanges(vector<ofPoint> changes){
     string s = "";
     for(auto c: changes){
         s += ofToString(c.x) + "," + ofToString(c.y) + ";";
@@ -92,6 +92,6 @@ string httpAdapter::serializeChanges(vector<ofPoint> changes){
     return s;
 }
 
-void httpAdapter::plan(string changes){
+void PredictorAdapter::plan(string changes){
     oscSender->sendPath(changes);
 }			

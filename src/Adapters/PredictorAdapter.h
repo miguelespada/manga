@@ -14,7 +14,7 @@
 #include "app.h"
 #include "OscSender.h"
 
-class httpAdapter{
+class PredictorAdapter{
     App *app;
     ofxJSONElement result;
     string serviceUrl;
@@ -26,10 +26,10 @@ class httpAdapter{
     OscSender *oscSender;
     
 public:
-    httpAdapter(App *a);
+    PredictorAdapter(App *a);
     void keyPressed(ofKeyEventArgs& eventArgs);
     
-    ~httpAdapter();
+    ~PredictorAdapter();
     bool bOnline;
     void update(ofEventArgs &args);
     bool isOnline();
