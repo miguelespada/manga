@@ -14,6 +14,7 @@
 
 class RobotAdapter{
     ofxOscSender  *sender;
+    ofxOscReceiver *receiver;
     App *app;
     float lastTime;
 public:
@@ -22,6 +23,11 @@ public:
     ~RobotAdapter();
     bool bOnline;
     void update(ofEventArgs &args);
+    
+    
+    void sendPath(string path);
+    void sendTest();
+    void sendZero();
 };
 
 #endif /* RobotAdapter_hpp */

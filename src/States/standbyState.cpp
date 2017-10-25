@@ -19,20 +19,70 @@ void StandbyState::draw(){
     
     ofDrawBitmapString("Last number of changes: " + ofToString(app->board.lastNumberOfChanges), 20, 60);
     
+    
     ofDrawBitmapString("Midi instrument [0..9]: " + ofToString(app->midiInstrument), 280, 20);
 
+    
+    
+    ofPushStyle();
+    ofPushMatrix();
+    
+    ofTranslate(510, 0);
+    
+    ofTranslate(0, 20);
+    if(app->bPredictorOnline){
+        ofSetColor(0, 255, 0);
+        ofDrawBitmapString("Predictor", 0, 0);
+    }
+    else{
+        ofSetColor(255, 0, 0);
+        ofDrawBitmapString("Predictor", 0, 0);
+    }
+    
+    
+    ofTranslate(0, 20);
+    if(app->bArduinoOnline){
+        ofSetColor(0, 255, 0);
+        ofDrawBitmapString("Arduino", 0, 0);
+    }
+    else{
+        ofSetColor(255, 0, 0);
+        ofDrawBitmapString("Arduino", 0, 0);
+    }
+    
+    ofTranslate(0, 20);
+    if(app->bAbletonOnline){
+        ofSetColor(0, 255, 0);
+        ofDrawBitmapString("Ableton", 0, 0);
+    }
+    else{
+        ofSetColor(255, 0, 0);
+        ofDrawBitmapString("Ableton", 0, 0);
+    }
+    
+    ofTranslate(0, 20);
+    if(app->bRobotDriverOnline){
+        ofSetColor(0, 255, 0);
+        ofDrawBitmapString("Robot", 0, 0);
+    }
+    else{
+        ofSetColor(255, 0, 0);
+        ofDrawBitmapString("Robot", 0, 0);
+    }
+    
+    ofPopStyle();
+    ofPopMatrix();
+    
     app->drawBoard(20, 80);
     app->drawExtras(40, 350);
 };
 
 void StandbyState::update(){
-    if(!app->online())
-        app->setCurrentState(new CheckPredictorConnectionState(app));
 };
 
 
 void StandbyState::next(){
-    app->setCurrentState(new CalibState(app));
+    app->setCurrentState(new CheckOnlineState(app));
     delete this;
 };
 

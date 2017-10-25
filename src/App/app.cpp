@@ -5,7 +5,7 @@ App::App():BaseApp(){
     bPredictorOnline = true;
     bAbletonOnline = true;
     bArduinoOnline = true;
-    bRobotOnline = true;
+    bRobotDriverOnline = true;
     midiInstrument = 10;
     
     for(int i = 0; i < 4; i ++){
@@ -41,6 +41,7 @@ void App::keyPressed (int key){
             toggleFullScreen();
                break;
            case ' ':
+               
                next();
                break;
         default:
@@ -54,5 +55,5 @@ void App::mousePressed(int x, int y, int button){
 }
 
 bool App::online(){
-    return bArduinoOnline && bPredictorOnline && bAbletonOnline && bRobotOnline;
+    return bArduinoOnline && bPredictorOnline && bAbletonOnline && bRobotDriverOnline;
 };

@@ -9,8 +9,10 @@
 #include "PredictorAdapter.h"
 #include "states.h"
 
-PredictorAdapter::PredictorAdapter(App *a){
+PredictorAdapter::PredictorAdapter(App *a, RobotAdapter *_robotAdapter){
     app = a;
+    robotAdapter = _robotAdapter;
+    
     bOnline = false;
     ofAddListener(ofEvents().update, this, &PredictorAdapter::update);
     
@@ -23,8 +25,6 @@ PredictorAdapter::PredictorAdapter(App *a){
     
     ofAddListener(ofEvents().keyPressed, this, &PredictorAdapter::keyPressed);
     bMustPredict = false;
-    
-    oscSender = new OscSender();
 }
 
 PredictorAdapter::~PredictorAdapter(){
@@ -77,10 +77,10 @@ void PredictorAdapter::keyPressed(ofKeyEventArgs& eventArgs){
         predict();
     
     if (eventArgs.key == 'z')
-        oscSender->sendZero();
+        if(robotAdapter != NULL) robotAdapter->sendZero();
     
     if (eventArgs.key == 'x')
-        oscSender->sendTestTwo();
+        if(robotAdapter != NULL) robotAdapter->sendTest();
 }
 
 string PredictorAdapter::serializeChanges(vector<ofPoint> changes){
@@ -92,7 +92,8 @@ string PredictorAdapter::serializeChanges(vector<ofPoint> changes){
 }
 
 void PredictorAdapter::plan(string changes){
-    
-    ofLog() << "Sending changes " << changes;
-    oscSender->sendPath(changes);
+    if(robotAdapter != NULL)  {
+        robotAdapter->sendPath(changes);
+        ofLog() << "Sending changes " << changes;
+    }
 }			

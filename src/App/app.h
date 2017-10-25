@@ -22,7 +22,7 @@ public:
     bool bPredictorOnline;
     bool bAbletonOnline;
     bool bArduinoOnline;
-    bool bRobotOnline;
+    bool bRobotDriverOnline;
     
     int midiInstrument;
     

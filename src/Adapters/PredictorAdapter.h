@@ -12,7 +12,7 @@
 #include "ofMain.h"
 #include "ofxJSON.h"
 #include "app.h"
-#include "OscSender.h"
+#include "RobotAdapter.h"
 
 class PredictorAdapter{
     App *app;
@@ -22,10 +22,10 @@ class PredictorAdapter{
     
     float lastTime;
     
-    OscSender *oscSender;
+    RobotAdapter *robotAdapter;
     
 public:
-    PredictorAdapter(App *a);
+    PredictorAdapter(App *a, RobotAdapter *_robotAdapter);
     void keyPressed(ofKeyEventArgs& eventArgs);
     
     ~PredictorAdapter();

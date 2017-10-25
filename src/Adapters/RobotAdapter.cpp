@@ -12,19 +12,29 @@
 RobotAdapter::RobotAdapter(App *a){
     app = a;
     
-    int remotePort = Assets::getInstance()->getRemotePort();
-    string remoteHost = Assets::getInstance()->getRemoteHost();
-    ofLogNotice() << "sending osc messages to port " << remoteHost << ":" << remotePort;
-    bOnline = false;
+    
+    int remotePort = Assets::getInstance()->getControllerPort();
+    string remoteHost = Assets::getInstance()->getControllerHost();
+    int localPort = Assets::getInstance()->getLocalPort();
     
     sender = new ofxOscSender();
-    sender->setup("localhost", remotePort);
+    
+    sender->setup(remoteHost, remotePort);
+    ofLog() << "Sending OSC to " << remoteHost << ":" << remotePort << endl;
+    
+    receiver = new ofxOscReceiver;
+    receiver->setup(localPort);
+    ofLogNotice() << "Listening OSC on port " << localPort;
+    
+    bOnline = false;
+    
     ofAddListener(ofEvents().update, this, &RobotAdapter::update);
     lastTime = ofGetElapsedTimef();
 }
 
 RobotAdapter::~RobotAdapter(){
     delete sender;
+    delete receiver;
 }
 
 
@@ -34,7 +44,37 @@ void RobotAdapter::update(ofEventArgs &args){
         ofxOscMessage msg;
         msg.setAddress("/ping");
         sender->sendMessage(msg);
+        bOnline = false;
     }
+    
+    app->bRobotDriverOnline = bOnline;
+    
+    while(receiver->hasWaitingMessages()){
+        ofxOscMessage m;
+        receiver->getNextMessage(&m);
+        if(m.getAddress() == "/reset") app->reset();
+        if(m.getAddress() == "/ping") bOnline = true;
+    }
+}
+
+void RobotAdapter::sendPath(string path){
+    ofxOscMessage msg;
+    msg.setAddress("/path");
+    msg.addStringArg(path);
+    sender->sendMessage(msg);
+}
+
+
+void RobotAdapter::sendZero(){
+    ofxOscMessage msg;
+    msg.setAddress("/zero");
+    sender->sendMessage(msg);    
+}
+
+void RobotAdapter::sendTest(){
+    ofxOscMessage msg;
+    msg.setAddress("/test");
+    sender->sendMessage(msg);
 }
 
 

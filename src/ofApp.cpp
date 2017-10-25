@@ -13,14 +13,13 @@ void ofApp::setup(){
     ofSetFrameRate(30);
     
     app = new App();
-    app->setCurrentState(new CheckPredictorConnectionState(app));
+    app->setCurrentState(new CheckOnlineState(app));
     
     
- //   osc = new OscAdapter(app);
-  // serial = new SerialAdapter(app);
-   // midi = new MidiAdapter(app);
-    predictor = new PredictorAdapter(app);
-  //  robot = new RobotAdapter(app);
+    serial = new SerialAdapter(app);
+    midi = new MidiAdapter(app);
+    robot = new RobotAdapter(app);
+    predictor = new PredictorAdapter(app, robot);
     
     
 #ifdef DEBUG

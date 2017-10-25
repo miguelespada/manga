@@ -10,9 +10,6 @@
 #define states_h
 
 #include "standbyState.h"
-#include "calibState.h"
-#include "CheckPredictorConnectionState.h"
-#include "CheckAbletonOnlineState.h"
-#include "CheckArduinoConnectionState.h"
+#include "CheckOnlineState.h"
 
 #endif

@@ -2,7 +2,6 @@
 
 #include "ofMain.h"
 #include "app.h"
-#include "OscAdapter.h"
 #include "SerialAdapter.h"
 #include "MidiAdapter.h"
 #include "PredictorAdapter.h"
@@ -17,7 +16,6 @@ class ofApp : public ofBaseApp{
         App *app;
         void mousePressed(int x, int y, int button);
     
-    OscAdapter *osc;
     SerialAdapter *serial;
     MidiAdapter *midi;
     PredictorAdapter *predictor;
