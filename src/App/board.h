@@ -35,6 +35,7 @@ public:
     int getNumRows();
     
     string toString();
+    
     vector<ofPoint>  fromPrediction(string values);
     int pitchToRow(int pitch);
     

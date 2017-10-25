@@ -89,7 +89,7 @@ int Board::getNumRows(){
 string Board::toString(){
     string s = "";
     
-    for(int i = 0; i < ROWS / 2; i++){
+    for(int i = ROWS / 2; i < ROWS; i++){
         s += ofToString(Assets::getInstance()->getMidiNote(i));
         s += ",";
         s += board[i].toString();

@@ -17,10 +17,10 @@ void ofApp::setup(){
     
     
  //   osc = new OscAdapter(app);
-    serial = new SerialAdapter(app);
+   serial = new SerialAdapter(app);
     midi = new MidiAdapter(app);
-    //   http = new httpAdapter(app);
-    robot = new RobotAdapter(app);
+    http = new httpAdapter(app);
+  //  robot = new RobotAdapter(app);
     
     
 #ifdef DEBUG

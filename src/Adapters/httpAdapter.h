@@ -12,6 +12,7 @@
 #include "ofMain.h"
 #include "ofxJSON.h"
 #include "app.h"
+#include "OscSender.h"
 
 class httpAdapter{
     App *app;
@@ -21,6 +22,8 @@ class httpAdapter{
     string plannerUrl;
     
     float lastTime;
+    
+    OscSender *oscSender;
     
 public:
     httpAdapter(App *a);

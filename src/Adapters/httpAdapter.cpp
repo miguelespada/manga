@@ -24,6 +24,8 @@ httpAdapter::httpAdapter(App *a){
     
     ofAddListener(ofEvents().keyPressed, this, &httpAdapter::keyPressed);
     bMustPredict = false;
+    
+    oscSender = new OscSender();
 }
 
 httpAdapter::~httpAdapter(){
@@ -85,5 +87,5 @@ string httpAdapter::serializeChanges(vector<ofPoint> changes){
 }
 
 void httpAdapter::plan(string changes){
-    result.open(plannerUrl + changes);
+    oscSender->sendPath(changes);
 }			

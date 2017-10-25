@@ -17,17 +17,18 @@ from magenta.protobuf import music_pb2
 import pretty_midi
 
 
-humanNotes = [36, 45, 46]
-machineNotes = [38, 48, 51]
+ 
+machineNotes = [36, 45, 46]
+humanNotes = [38, 48, 51]
 mapping = {}
 
 # mapping[42] = 51
 # mapping[49] = -1
 # mapping[50] = 48
 
-mapping[42] = 51
+mapping[42] = -1
 mapping[49] = -1
-mapping[50] = 48
+mapping[50] = -1
 
 def binNotes(notes, length = 0.125):
     beats = notes[-1].start / length
