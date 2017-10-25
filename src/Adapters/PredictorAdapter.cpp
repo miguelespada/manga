@@ -68,7 +68,7 @@ void PredictorAdapter::predict(){
     string board = app->board.toString();
     bool parsingSuccessful = result.open(predictorUrl + board);
     string prediction =  result.get("prediction", "").asString();
-    vector<ofPoint> changes = app->board.fromPrediction(prediction, Assets::getInstance()->getAutoUpdatePredictions());
+    vector<ofPoint> changes = app->board.fromPrediction(prediction, app->bAutoUpdatePredictions);
     plan(serializeChanges(changes));
 }
 

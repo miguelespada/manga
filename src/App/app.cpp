@@ -8,6 +8,8 @@ App::App():BaseApp(){
     bRobotDriverOnline = true;
     midiInstrument = 10;
     
+    bAutoUpdatePredictions = Assets::getInstance()->getAutoUpdatePredictions();
+    
     for(int i = 0; i < 4; i ++){
         extras[i] = false;
     }
@@ -36,13 +38,15 @@ void App::keyPressed (int key){
     }
     else{
        switch (key) {
-        case 'f':
-            scale = 1;
-            toggleFullScreen();
+           case 'f':
+                scale = 1;
+                toggleFullScreen();
                break;
            case ' ':
-               
                next();
+               break;
+           case 'a':
+               bAutoUpdatePredictions = !bAutoUpdatePredictions;
                break;
         default:
             break;

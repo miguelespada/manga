@@ -70,6 +70,12 @@ void StandbyState::draw(){
         ofDrawBitmapString("Robot", 0, 0);
     }
     
+    ofTranslate(0, 20);
+    if(app->bAutoUpdatePredictions){
+        ofSetColor(0, 255, 255);
+        ofDrawBitmapString("Auto (a)", 0, 0);
+    }
+    
     ofPopStyle();
     ofPopMatrix();
     

@@ -24,6 +24,8 @@ public:
     bool bArduinoOnline;
     bool bRobotDriverOnline;
     
+    bool bAutoUpdatePredictions;
+    
     int midiInstrument;
     
     bool online();

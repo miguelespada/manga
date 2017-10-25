@@ -56,6 +56,16 @@ void CheckOnlineState::draw(){
         ofDrawBitmapString("Robot driver is not connected...", 0, 0);
     }
     
+    ofTranslate(0, 20);
+    if(app->bAutoUpdatePredictions){
+        ofSetColor(255, 255, 0);
+        ofDrawBitmapString("Auto update predictions (enabled) [a]", 0, 0);
+    }
+    else{
+        ofSetColor(0, 255, 255);
+        ofDrawBitmapString("Auto update predictions (disabled) [a]", 0, 0);
+    }
+    
     ofPopStyle();
     ofPopMatrix();
     
