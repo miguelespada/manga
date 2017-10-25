@@ -11,7 +11,7 @@
 
 httpAdapter::httpAdapter(App *a){
     app = a;
-    bOnline = true;
+    bOnline = false;
     ofAddListener(ofEvents().update, this, &httpAdapter::update);
     
     string baseRoute = "http://127.0.0.1:5000/";
@@ -33,7 +33,7 @@ httpAdapter::~httpAdapter(){
 
 void httpAdapter::update(ofEventArgs &args){
     app->bPredictorOnline = bOnline;
-    /*
+    
     if(isOnline() && !bOnline){
         bOnline = true;
         ofLogNotice() << "Predictor is online";
@@ -44,7 +44,7 @@ void httpAdapter::update(ofEventArgs &args){
             predict();
             app->board.lastHumanActivity = -1;
         }
-    }*/
+    }
 }
 
 bool httpAdapter::isOnline(){
