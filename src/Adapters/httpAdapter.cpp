@@ -14,11 +14,10 @@ httpAdapter::httpAdapter(App *a){
     bOnline = false;
     ofAddListener(ofEvents().update, this, &httpAdapter::update);
     
-    string baseRoute = "http://127.0.0.1:5000/";
+    string baseRoute = "http://" + Assets::getInstance()->getControllerHost() + ":5000/";
     
     serviceUrl = baseRoute + "ping";
     predictorUrl = baseRoute + "predict/";
-    plannerUrl = baseRoute + "planner/";
     
     lastTime = ofGetElapsedTimef();
     
@@ -69,7 +68,7 @@ void httpAdapter::predict(){
     string board = app->board.toString();
     bool parsingSuccessful = result.open(predictorUrl + board);
     string prediction =  result.get("prediction", "").asString();
-    vector<ofPoint> changes = app->board.fromPrediction(prediction);
+      vector<ofPoint> changes = app->board.fromPrediction(prediction);
     plan(serializeChanges(changes));
 }
 
@@ -93,5 +92,6 @@ string httpAdapter::serializeChanges(vector<ofPoint> changes){
 }
 
 void httpAdapter::plan(string changes){
+    cout << changes << endl;
     oscSender->sendPath(changes);
 }			
