@@ -25,6 +25,7 @@ PredictorAdapter::PredictorAdapter(App *a, RobotAdapter *_robotAdapter){
     
     ofAddListener(ofEvents().keyPressed, this, &PredictorAdapter::keyPressed);
     bMustPredict = false;
+    
 }
 
 PredictorAdapter::~PredictorAdapter(){
@@ -76,11 +77,15 @@ void PredictorAdapter::keyPressed(ofKeyEventArgs& eventArgs){
     if (eventArgs.key == 'p')
         predict();
     
-    if (eventArgs.key == 'z')
-        if(robotAdapter != NULL) robotAdapter->sendZero();
+    if (eventArgs.key == 'z'){
+        if(robotAdapter != NULL)
+            robotAdapter->sendZero();
+    }
     
-    if (eventArgs.key == 'x')
-        if(robotAdapter != NULL) robotAdapter->sendTest();
+    if (eventArgs.key == 'x'){
+        if(robotAdapter != NULL)
+            robotAdapter->sendTest();
+    }
 }
 
 string PredictorAdapter::serializeChanges(vector<ofPoint> changes){
