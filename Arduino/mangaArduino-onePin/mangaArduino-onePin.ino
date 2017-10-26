@@ -68,10 +68,7 @@ void loop(){
   }
  
  
-    printMux(3);
-    printMux(4);
-    printMux(5);
-  
+    printMux(2);
 
 }
 
@@ -103,7 +100,10 @@ void printMux(unsigned char mux){
 
 void readPins(int mux){
   
+  int PIN = 0;
+  
   for(pin=0;pin<16;pin++){ 
+    
        values[pin] = 0;
        unsigned S0,S1,S2,S3;
        S0 = pin & B00000001; 
@@ -118,7 +118,7 @@ void readPins(int mux){
        
        STATE = digitalRead(7);
        
-       values[pin] = STATE;
+       values[PIN] = STATE;
        
        if(mux == 5){
          if(pin == 12) values[3] = STATE;
@@ -132,6 +132,8 @@ void readPins(int mux){
          if(pin == 12) values[7] = STATE;
          if(pin == 13) values[8] = STATE;
        }
+       
+       
     }  
 }
 
