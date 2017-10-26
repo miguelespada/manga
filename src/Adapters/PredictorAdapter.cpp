@@ -6,32 +6,32 @@
 //
 //
 
-#include "httpAdapter.h"
+#include "PredictorAdapter.h"
 #include "states.h"
 
-httpAdapter::httpAdapter(App *a){
+PredictorAdapter::PredictorAdapter(App *a, RobotAdapter *_robotAdapter){
     app = a;
-    bOnline = false;
-    ofAddListener(ofEvents().update, this, &httpAdapter::update);
+    robotAdapter = _robotAdapter;
     
-    string baseRoute = "http://127.0.0.1:5000/";
+    bOnline = false;
+    ofAddListener(ofEvents().update, this, &PredictorAdapter::update);
+    
+    string baseRoute = "http://" + Assets::getInstance()->getControllerHost() + ":5000/";
     
     serviceUrl = baseRoute + "ping";
     predictorUrl = baseRoute + "predict/";
-    plannerUrl = baseRoute + "planner/";
     
     lastTime = ofGetElapsedTimef();
     
-    ofAddListener(ofEvents().keyPressed, this, &httpAdapter::keyPressed);
+    ofAddListener(ofEvents().keyPressed, this, &PredictorAdapter::keyPressed);
     bMustPredict = false;
     
-    oscSender = new OscSender();
 }
 
-httpAdapter::~httpAdapter(){
+PredictorAdapter::~PredictorAdapter(){
 }
 
-void httpAdapter::update(ofEventArgs &args){
+void PredictorAdapter::update(ofEventArgs &args){
     app->bPredictorOnline = bOnline;
     
     if(isOnline() && !bOnline){
@@ -40,14 +40,14 @@ void httpAdapter::update(ofEventArgs &args){
     }
     
     if(app->board.lastHumanActivity > 0){
-        if(ofGetElapsedTimef() - app->board.lastHumanActivity> Assets::getInstance()->getInactivityTime()){
+        if(ofGetElapsedTimef() - app->board.lastHumanActivity > Assets::getInstance()->getInactivityTime()){
             predict();
             app->board.lastHumanActivity = -1;
         }
     }
 }
 
-bool httpAdapter::isOnline(){
+bool PredictorAdapter::isOnline(){
     if(ofGetElapsedTimef() - lastTime > 3){
 
         lastTime = ofGetElapsedTimef();
@@ -65,26 +65,30 @@ bool httpAdapter::isOnline(){
     }
 }
 
-void httpAdapter::predict(){
+void PredictorAdapter::predict(){
     string board = app->board.toString();
     bool parsingSuccessful = result.open(predictorUrl + board);
     string prediction =  result.get("prediction", "").asString();
-    vector<ofPoint> changes = app->board.fromPrediction(prediction);
+    vector<ofPoint> changes = app->board.fromPrediction(prediction, app->bAutoUpdatePredictions);
     plan(serializeChanges(changes));
 }
 
-void httpAdapter::keyPressed(ofKeyEventArgs& eventArgs){
+void PredictorAdapter::keyPressed(ofKeyEventArgs& eventArgs){
     if (eventArgs.key == 'p')
         predict();
     
-    if (eventArgs.key == 'z')
-        oscSender->sendZero();
+    if (eventArgs.key == 'z'){
+        if(robotAdapter != NULL)
+            robotAdapter->sendZero();
+    }
     
-    if (eventArgs.key == 'x')
-        oscSender->sendTestTwo();
+    if (eventArgs.key == 'x'){
+        if(robotAdapter != NULL)
+            robotAdapter->sendTest();
+    }
 }
 
-string httpAdapter::serializeChanges(vector<ofPoint> changes){
+string PredictorAdapter::serializeChanges(vector<ofPoint> changes){
     string s = "";
     for(auto c: changes){
         s += ofToString(c.x) + "," + ofToString(c.y) + ";";
@@ -92,6 +96,9 @@ string httpAdapter::serializeChanges(vector<ofPoint> changes){
     return s;
 }
 
-void httpAdapter::plan(string changes){
-    oscSender->sendPath(changes);
+void PredictorAdapter::plan(string changes){
+    if(robotAdapter != NULL)  {
+        robotAdapter->sendPath(changes);
+        ofLog() << "Sending changes " << changes;
+    }
 }			

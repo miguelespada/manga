@@ -12,24 +12,23 @@
 #include "ofMain.h"
 #include "ofxJSON.h"
 #include "app.h"
-#include "OscSender.h"
+#include "RobotAdapter.h"
 
-class httpAdapter{
+class PredictorAdapter{
     App *app;
     ofxJSONElement result;
     string serviceUrl;
     string predictorUrl;
-    string plannerUrl;
     
     float lastTime;
     
-    OscSender *oscSender;
+    RobotAdapter *robotAdapter;
     
 public:
-    httpAdapter(App *a);
+    PredictorAdapter(App *a, RobotAdapter *_robotAdapter);
     void keyPressed(ofKeyEventArgs& eventArgs);
     
-    ~httpAdapter();
+    ~PredictorAdapter();
     bool bOnline;
     void update(ofEventArgs &args);
     bool isOnline();

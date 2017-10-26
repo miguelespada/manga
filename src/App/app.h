@@ -22,8 +22,11 @@ public:
     bool bPredictorOnline;
     bool bAbletonOnline;
     bool bArduinoOnline;
-    bool bRobotOnline;
+    bool bRobotDriverOnline;
     
+    bool bAutoUpdatePredictions;
+    
+    bool bRobotBusy;
     int midiInstrument;
     
     bool online();

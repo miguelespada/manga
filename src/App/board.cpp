@@ -107,7 +107,7 @@ int Board::pitchToRow(int pitch){
 }
 
 
-vector<ofPoint> Board::fromPrediction(string values){
+vector<ofPoint> Board::fromPrediction(string values, bool bAutoUpdate){
     vector<string> rows = ofSplitString(values, ";");
     rows.pop_back();
     
@@ -120,10 +120,19 @@ vector<ofPoint> Board::fromPrediction(string values){
         for(int i = 0; i < notes[1].size(); i ++){
             bool bChanged = false;
             
-            if(notes[1][i] == '1')
-                bChanged = board[nRow].set(i, 1);
-            else
-                bChanged = board[nRow].set(i, 0);
+            
+            if(bAutoUpdate){
+                if(notes[1][i] == '1')
+                    bChanged = board[nRow].set(i, 1);
+                else
+                    bChanged = board[nRow].set(i, 0);
+            }
+            else{
+                if(notes[1][i] == '1')
+                    bChanged = !board[nRow].get(i);
+                else
+                    bChanged = board[nRow].get(i);
+            }
             
             if(bChanged){
                 lastMachineActivity = ofGetElapsedTimef();

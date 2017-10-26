@@ -2,10 +2,9 @@
 
 #include "ofMain.h"
 #include "app.h"
-#include "OscAdapter.h"
 #include "SerialAdapter.h"
 #include "MidiAdapter.h"
-#include "httpAdapter.h"
+#include "PredictorAdapter.h"
 #include "RobotAdapter.h"
 
 class ofApp : public ofBaseApp{
@@ -17,11 +16,10 @@ class ofApp : public ofBaseApp{
         App *app;
         void mousePressed(int x, int y, int button);
     
-    OscAdapter *osc;
     SerialAdapter *serial;
     MidiAdapter *midi;
-    httpAdapter *http;
-    RobotAdapter *robot;
+    PredictorAdapter *predictor;
+    RobotAdapter *robot = NULL;
     
 		
 };

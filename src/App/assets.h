@@ -28,6 +28,9 @@ public:
     
     int getInactivityTime();
     int getMaxIdleTime();
+    
+    bool getAutoUpdatePredictions();
+    
 };
 
 #endif
