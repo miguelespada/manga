@@ -68,7 +68,7 @@ void loop(){
   }
  
  
-    printMux(4);
+    printMux(0);
 
 }
 
@@ -106,11 +106,11 @@ void readPins(int mux){
        values[pin] = 0;
        unsigned S0,S1,S2,S3;
 
-       int pinToToRead = 0;
-       S0 = pinToToRead & B00000001; 
-       S1 = pinToToRead & B00000010;
-       S2 = pinToToRead & B00000100; 
-       S3 = pinToToRead & B00001000; 
+       int pinToRead = 0;
+       S0 = pinToRead & B00000001; 
+       S1 = pinToRead & B00000010;
+       S2 = pinToRead & B00000100; 
+       S3 = pinToRead & B00001000; 
     
        digitalWrite (8, S0); 
        digitalWrite ( 9, S1) ;
@@ -143,6 +143,7 @@ void readMux(int C){
     int channel = C;
    
     if(C == 2) channel = 7;
+    if(C == 1) channel = 2;
     unsigned int SC0, SC1, SC2;
     SC0 = channel & B00000001;  
     digitalWrite (3 , SC0);
