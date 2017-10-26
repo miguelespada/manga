@@ -21,3 +21,6 @@ def predict(values):
 @app.route('/planner/<changes>')
 def plan(changes):
   return jsonify({"plan": changes})
+
+
+app.run(host= '0.0.0.0')
