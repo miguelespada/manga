@@ -65,6 +65,15 @@ void CheckOnlineState::draw(){
         ofSetColor(0, 255, 255);
         ofDrawBitmapString("Auto update predictions (disabled) [a]", 0, 0);
     }
+    ofTranslate(0, 20);
+    if(app->bRobotBusy){
+        ofSetColor(255, 0, 0);
+        ofDrawBitmapString("Robot busy", 0, 0);
+    }
+    else{
+        ofSetColor(0, 255, 0);
+        ofDrawBitmapString("Robot not busy", 0, 0);
+    }
     
     ofPopStyle();
     ofPopMatrix();

@@ -26,6 +26,7 @@ public:
     
     bool bAutoUpdatePredictions;
     
+    bool bRobotBusy;
     int midiInstrument;
     
     bool online();

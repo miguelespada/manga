@@ -7,6 +7,7 @@ App::App():BaseApp(){
     bArduinoOnline = true;
     bRobotDriverOnline = true;
     midiInstrument = 10;
+    bRobotBusy = false;
     
     bAutoUpdatePredictions = Assets::getInstance()->getAutoUpdatePredictions();
     
