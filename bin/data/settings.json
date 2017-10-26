@@ -3,7 +3,7 @@
   "controller_port" : 7000,
   "controller_host" : "192.168.1.61",
   "updatePredictions" : false,
-  "inactivityTime" : 3,
+  "inactivityTime" : 1,
 
   "x_pos" : -1920,
   "server" : "http://localhost:5000"
