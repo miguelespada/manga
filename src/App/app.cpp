@@ -7,6 +7,7 @@ App::App():BaseApp(){
     bArduinoOnline = true;
     bRobotDriverOnline = true;
     midiInstrument = 10;
+    bRotate = false;
     
     bAutoUpdatePredictions = Assets::getInstance()->getAutoUpdatePredictions();
     
@@ -47,6 +48,9 @@ void App::keyPressed (int key){
                break;
            case 'a':
                bAutoUpdatePredictions = !bAutoUpdatePredictions;
+               break;
+           case 'r':
+               bRotate = !bRotate;
                break;
         default:
             break;

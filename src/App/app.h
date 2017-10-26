@@ -23,6 +23,7 @@ public:
     bool bAbletonOnline;
     bool bArduinoOnline;
     bool bRobotDriverOnline;
+    bool bRotate;
     
     bool bAutoUpdatePredictions;
     

@@ -36,7 +36,16 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    ofSetDrawBitmapMode(OF_BITMAPMODE_MODEL);
+    ofPushMatrix();
+    if(app->bRotate){
+        ofTranslate(ofGetWidth()/2, ofGetHeight() / 2);
+        ofRotate(90);
+        ofTranslate(-ofGetWidth()/2, - ofGetHeight() / 2);
+    }
     app->draw();
+        
+    ofPopMatrix();
 }
 
 void ofApp::mousePressed(int x, int y, int button){

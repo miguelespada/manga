@@ -22,8 +22,6 @@ void StandbyState::draw(){
     
     ofDrawBitmapString("Midi instrument [0..9]: " + ofToString(app->midiInstrument), 280, 20);
 
-    
-    
     ofPushStyle();
     ofPushMatrix();
     
