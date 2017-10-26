@@ -3,12 +3,12 @@
   #include <avr/power.h>
 #endif
 
-#define PIN            2
+#define PINPIXEL            2
 #define NUMPIXELS      48
 
 int c = 0; 
 int prevC = -1;
-Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PINPIXEL, NEO_GRB + NEO_KHZ800);
 
 
 int pin;
@@ -68,7 +68,7 @@ void loop(){
   }
  
  
-    printMux(2);
+    printMux(4);
 
 }
 
@@ -99,17 +99,18 @@ void printMux(unsigned char mux){
 }
 
 void readPins(int mux){
-  
-  int PIN = 0;
+
   
   for(pin=0;pin<16;pin++){ 
     
        values[pin] = 0;
        unsigned S0,S1,S2,S3;
-       S0 = pin & B00000001; 
-       S1 = pin & B00000010;
-       S2 = pin & B00000100; 
-       S3 = pin & B00001000; 
+
+       int pinToToRead = 0;
+       S0 = pinToToRead & B00000001; 
+       S1 = pinToToRead & B00000010;
+       S2 = pinToToRead & B00000100; 
+       S3 = pinToToRead & B00001000; 
     
        digitalWrite (8, S0); 
        digitalWrite ( 9, S1) ;
@@ -118,7 +119,7 @@ void readPins(int mux){
        
        STATE = digitalRead(7);
        
-       values[PIN] = STATE;
+       values[pin] = STATE;
        
        if(mux == 5){
          if(pin == 12) values[3] = STATE;
