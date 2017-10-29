@@ -13,7 +13,7 @@ def ping():
 def predict(values):
 
   primer = generator.encodePrimer(values)
-  prediction = generator.generate(primer, temperature=1.1)
+  prediction = generator.generate(primer, temperature=1.2)
 
   return jsonify({"prediction": prediction})
 
