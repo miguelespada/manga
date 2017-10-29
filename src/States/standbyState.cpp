@@ -20,10 +20,8 @@ void StandbyState::draw(){
     ofDrawBitmapString("Last number of changes: " + ofToString(app->board.lastNumberOfChanges), 20, 60);
     
     
-    ofDrawBitmapString("Midi instrument [0..9]: " + ofToString(app->midiInstrument), 280, 20);
+    ofDrawBitmapString("Midi instrument [1..3]: " + ofToString(app->midiInstrument), 280, 20);
 
-    
-    
     ofPushStyle();
     ofPushMatrix();
     
@@ -76,6 +74,12 @@ void StandbyState::draw(){
         ofDrawBitmapString("Auto (a)", 0, 0);
     }
     
+    ofTranslate(0, 20);
+    if(app->bInverseMidi){
+        ofSetColor(255, 255, 0);
+        ofDrawBitmapString("Midi Invert", 0, 0);
+    }
+    
     ofPopStyle();
     ofPopMatrix();
     
@@ -88,7 +92,7 @@ void StandbyState::update(){
 
 
 void StandbyState::next(){
-    app->setCurrentState(new CheckOnlineState(app));
+    app->setCurrentState(new RunningState(app));
     delete this;
 };
 

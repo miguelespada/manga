@@ -61,3 +61,11 @@ string Line::toString(){
     return s;
     
 }
+
+bool Line::isClean(){
+    bool bClean = true;
+    for(int i = 0; i < BOARD_SIZE; i++){
+        if(board[i]) return false;
+    }
+    return bClean;
+}

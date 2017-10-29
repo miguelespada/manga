@@ -6,14 +6,21 @@ App::App():BaseApp(){
     bAbletonOnline = true;
     bArduinoOnline = true;
     bRobotDriverOnline = true;
-    midiInstrument = 10;
+    midiInstrument = 1;
+    bRotate = false;
     bRobotBusy = false;
+    bInverseMidi = false;
     
     bAutoUpdatePredictions = Assets::getInstance()->getAutoUpdatePredictions();
     
     for(int i = 0; i < 4; i ++){
         extras[i] = false;
     }
+    
+    
+    idleMessages.push_back("Let's play");
+    idleMessages.push_back("Let's rock");
+    idleMessages.push_back("Play with me");
 }
 
 void App::drawBoard(int x, int y){
@@ -30,12 +37,15 @@ void App::drawExtras(int x, int y){
     }
 }
 
+void App::nextMidiInstrument(){
+    midiInstrument += 1;
+    if(midiInstrument == 4)
+        midiInstrument = 1;
+}
+
 void App::keyPressed (int key){
-    if(key >= '0' && key <= '9'){
-        if(key == '0')
-            midiInstrument = 10;
-        else
-            midiInstrument = key - '0';
+    if(key >= '1' && key <= '3'){
+        midiInstrument = key - '0';
     }
     else{
        switch (key) {
@@ -48,6 +58,12 @@ void App::keyPressed (int key){
                break;
            case 'a':
                bAutoUpdatePredictions = !bAutoUpdatePredictions;
+               break;
+           case 'r':
+               bRotate = !bRotate;
+               break;
+           case 'i':
+               bInverseMidi = !bInverseMidi;
                break;
         default:
             break;

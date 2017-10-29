@@ -75,6 +75,9 @@ void CheckOnlineState::draw(){
         ofDrawBitmapString("Robot not busy", 0, 0);
     }
     
+   
+    
+    
     ofPopStyle();
     ofPopMatrix();
     

@@ -1,9 +1,9 @@
 {
   "local_port" : 8001,
   "controller_port" : 7000,
-  "controller_host" : "192.168.1.61",
+  "controller_host" : "127.0.0.1",
   "updatePredictions" : false,
-  "inactivityTime" : 3,
+  "inactivityTime" : 1,
 
   "x_pos" : -1920,
   "server" : "http://localhost:5000"

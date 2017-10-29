@@ -41,8 +41,10 @@ void PredictorAdapter::update(ofEventArgs &args){
     
     if(app->board.lastHumanActivity > 0){
         if(ofGetElapsedTimef() - app->board.lastHumanActivity > Assets::getInstance()->getInactivityTime()){
-            predict();
-            app->board.lastHumanActivity = -1;
+            if(!app->bRobotBusy) {
+                predict();
+                app->board.lastHumanActivity = -1;
+            }
         }
     }
 }
@@ -66,10 +68,16 @@ bool PredictorAdapter::isOnline(){
 }
 
 void PredictorAdapter::predict(){
-    string board = app->board.toString();
-    bool parsingSuccessful = result.open(predictorUrl + board);
-    string prediction =  result.get("prediction", "").asString();
-    vector<ofPoint> changes = app->board.fromPrediction(prediction, app->bAutoUpdatePredictions);
+    vector<ofPoint> changes;
+    if(app->board.isClean()){
+        changes = app->board.changesToClean(app->bAutoUpdatePredictions);
+    }
+    else{
+        string board = app->board.toString();
+        bool parsingSuccessful = result.open(predictorUrl + board);
+        string prediction =  result.get("prediction", "").asString();
+        changes = app->board.fromPrediction(prediction, app->bAutoUpdatePredictions);
+    }
     plan(serializeChanges(changes));
 }
 

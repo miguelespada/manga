@@ -67,11 +67,12 @@ void loop(){
     prevC = c;
   }
  
- 
-    printMux(3);
-    printMux(4);
     printMux(5);
-  
+    printMux(4);
+    printMux(3);
+    printMux(2);
+    printMux(1);
+    printMux(0);
 
 }
 
@@ -140,6 +141,7 @@ void readMux(int C){
     int channel = C;
    
     if(C == 2) channel = 7;
+    if(C == 1) channel = 2;
     unsigned int SC0, SC1, SC2;
     SC0 = channel & B00000001;  
     digitalWrite (3 , SC0);

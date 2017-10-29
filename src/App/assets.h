@@ -24,7 +24,7 @@ public:
     int getXpos();
     string getServer();
     
-    int getMidiNote(int i);
+    int getMidiNote(int i, bool bInverse);
     
     int getInactivityTime();
     int getMaxIdleTime();

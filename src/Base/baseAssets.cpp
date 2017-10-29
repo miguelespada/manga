@@ -6,6 +6,8 @@ BaseAssets::BaseAssets(){
     ofLogNotice() << "Loading settings from: " << path;
     settings.open(path);
     ofTrueTypeFont::setGlobalDpi(72);
+    
+    font.loadFont("ProximaNova-Bold.otf", 128);
 }
 
 

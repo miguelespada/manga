@@ -23,16 +23,23 @@ public:
     bool bAbletonOnline;
     bool bArduinoOnline;
     bool bRobotDriverOnline;
+    bool bRotate;
+    
+    
     
     bool bAutoUpdatePredictions;
     
     bool bRobotBusy;
     int midiInstrument;
+    void nextMidiInstrument();
+    bool bInverseMidi;
     
     bool online();
     
     bool extras[4];
     void drawExtras(int x, int y);
+    
+    vector<string> idleMessages;
     
     
 };

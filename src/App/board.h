@@ -37,6 +37,8 @@ public:
     string toString();
     
     vector<ofPoint>  fromPrediction(string values,  bool bAutoUpdate);
+    vector<ofPoint>  changesToClean(bool bAutoUpdate);
+    
     int pitchToRow(int pitch);
     
     float lastHumanActivity;
@@ -46,6 +48,8 @@ public:
     void unsetHumanActivity();
     
     int lastNumberOfChanges;
+    
+    bool isClean();
 };
 
 

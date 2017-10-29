@@ -52,6 +52,7 @@ void RobotAdapter::update(ofEventArgs &args){
     while(receiver->hasWaitingMessages()){
         ofxOscMessage m;
         receiver->getNextMessage(&m);
+        
         if(m.getAddress() == "/reset") app->reset();
         if(m.getAddress() == "/ping") bOnline = true;
         if(m.getAddress() == "/busy") app->bRobotBusy = true;
