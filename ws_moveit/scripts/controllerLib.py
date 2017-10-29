@@ -16,7 +16,7 @@ from moveit_msgs.msg import Constraints, OrientationConstraint
 
 DELTA_DISTANCE = -0.02
 NORMAL_Z = 0.08
-DELTA_ALPHA = 0.0055
+DELTA_ALPHA = 0.035
 PUSH_TOLERANCE = 0.001
 
 def initRobot():
@@ -47,6 +47,7 @@ def initRobot():
     time.sleep(1)
 
     print "Initial Join values should be", initialJoinValues
+    print "Actual values are", np.degrees(robot.get_current_state().joint_state.position)
     group.set_goal_position_tolerance(0.00001)
     group.allow_looking(True)
     group.allow_replanning(True)
@@ -67,6 +68,8 @@ def initRobot():
     zeroPose.orientation.z = -0.5
     zeroPose.orientation.w = 0.5
 
+    print "Loading extra buttons"
+    loadExtraButtons()
     return robot, scene, group, zeroPose
 
 def shutdown():
@@ -142,8 +145,17 @@ def loadMatrix():
         i += 1
         matrix[p.cord_x][p.cord_y] = p
     print "Total points loaded: ", i
+    return matrix
 
+def loadExtraButtons():
+    global extra1, extra2
+    extra1data = "0,0,0.2,0.22,0.010000,0.00500,0.005000"
+    extra1 = Point()
+    extra1.fromString(extra1data)
 
+    extra2data = "0,0,-0.2,-0.2,0.025000,0.04100,0.005000"
+    extra2 = Point()
+    extra2.fromString(extra2data)
 
 def goToPose(pose, step=0.05):
     waypoints = [group.get_current_pose().pose]
@@ -170,9 +182,17 @@ def goToPoint(p, z = NORMAL_Z):
     goToPose(pose)
     return pose
 
+def goSlowlyToPoint(p, z = NORMAL_Z):
+    pose = copy.deepcopy(zeroPose)
+    pose.position.x = p.getPos()[0]
+    pose.position.y = p.getPos()[1]
+    pose.position.z = z
+    goToPose(pose, step=0.0001)
+    return pose
+
 def pushInPlace(pose, tol = PUSH_TOLERANCE):
     # Tolerancia [-0.002, 0.004]
-    waypoints = []
+    waypoints = [group.get_current_pose().pose]
     waypoints.append(copy.deepcopy(pose))
     pose.position.z = 0.055 + tol 
     waypoints.append(copy.deepcopy(pose))
@@ -246,6 +266,7 @@ def pushOne(x, y):
     pushInPlace(pose, p.tolerance)
     
 def createPath(coords, last = (2, 6)):
+    global matrix
     loadMatrix()
     before = time.time()
     for coord in coords:
