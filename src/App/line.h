@@ -34,6 +34,8 @@ public:
     bool get(int i);
     
     string toString();
+    
+    bool isClean();
 };
 
 

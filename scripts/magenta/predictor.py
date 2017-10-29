@@ -14,7 +14,7 @@ def ping():
 def predict(values):
 
   prediction = -1 
-  temp = 1.1 + random() / 10.0
+  temp = 1.1 + random() / 5.0
 
   while prediction == -1:
     primer = generator.encodePrimer(values)

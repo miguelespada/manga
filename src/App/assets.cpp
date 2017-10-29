@@ -44,7 +44,7 @@ bool Assets::getAutoUpdatePredictions(){
 }
 
 int Assets::getMidiNote(int i, bool bInverse){
-    int notes[6] = {48, 46, 51, 46, 38, 36};
+    int notes[6] = {48, 45, 51, 46, 38, 36};
     if(bInverse) return notes[5 - i];
     return notes[i];
 }

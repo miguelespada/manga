@@ -165,8 +165,14 @@ def generate(primer = example, qpm = 120, num_steps = 120,
 
   print "MAX distance: ", max(distances)
   if max(distances) == 0: return -1
+
+
   # print "MAX fragment: ", np.argmax(distances)
   # print "AVG distance: ", np.average(distances)
-   
+  
+  nNotes = 0
+  for n in fragment(bins, np.argmax(distances)):
+    nNotes += len(n)
+  if nNotes == 0: return -1
   return encondeFragment(fragment(bins, np.argmax(distances)))
 

@@ -55,6 +55,7 @@ void Board::draw(int x, int y){
     ofTranslate(anchor);
     for(int i = 0; i < ROWS; i++){
         board[i].draw();
+        ofDrawBitmapString(ofToString(Assets::getInstance()->getMidiNote(i, false)), 10, 25);
         ofTranslate(0, CELL_SIZE);
     }
     
@@ -98,6 +99,15 @@ string Board::toString(){
     return s;
 }
 
+bool Board::isClean(){
+    bool bClean = true;
+    
+    for(int i = ROWS / 2; i < ROWS; i++){
+        if (!board[i].isClean()) return false;
+    }
+    
+    return bClean;
+}
 
 int Board::pitchToRow(int pitch){
     for(int i = 0; i < ROWS; i ++){
@@ -139,6 +149,31 @@ vector<ofPoint> Board::fromPrediction(string values, bool bAutoUpdate){
                 changes.push_back(ofPoint(nRow, i));
             }
         }
+        
+    }
+    lastNumberOfChanges = changes.size();
+    return changes;
+}
+
+vector<ofPoint> Board::changesToClean(bool bAutoUpdate){
+    
+    vector<ofPoint> changes;
+    lastNumberOfChanges = 0;
+    
+     for(int nRow = 0; nRow < ROWS / 2; nRow ++){
+         for(int i = 0; i < BOARD_SIZE; i++){
+            bool bChanged = false;
+             
+            if(board[nRow].get(i)){
+                bChanged = true;
+                if(bAutoUpdate) board[nRow].set(i, 0);
+            }
+             
+            if(bChanged){
+                lastMachineActivity = ofGetElapsedTimef();
+                changes.push_back(ofPoint(nRow, i));
+            }
+         }
         
     }
     lastNumberOfChanges = changes.size();
