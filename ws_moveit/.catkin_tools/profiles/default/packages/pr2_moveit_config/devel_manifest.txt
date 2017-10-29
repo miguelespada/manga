@@ -1,0 +1,4 @@
+pr2_moveit_config
+/home/miguel/ws_moveit/devel/.private/pr2_moveit_config/share/pr2_moveit_config/cmake/pr2_moveit_configConfig-version.cmake /home/miguel/ws_moveit/devel/share/pr2_moveit_config/cmake/pr2_moveit_configConfig-version.cmake
+/home/miguel/ws_moveit/devel/.private/pr2_moveit_config/share/pr2_moveit_config/cmake/pr2_moveit_configConfig.cmake /home/miguel/ws_moveit/devel/share/pr2_moveit_config/cmake/pr2_moveit_configConfig.cmake
+/home/miguel/ws_moveit/devel/.private/pr2_moveit_config/lib/pkgconfig/pr2_moveit_config.pc /home/miguel/ws_moveit/devel/lib/pkgconfig/pr2_moveit_config.pc

@@ -1,0 +1,4 @@
+pr2_common/pr2_description
+/home/miguel/ws_moveit/devel/.private/pr2_description/share/pr2_description/cmake/pr2_descriptionConfig-version.cmake /home/miguel/ws_moveit/devel/share/pr2_description/cmake/pr2_descriptionConfig-version.cmake
+/home/miguel/ws_moveit/devel/.private/pr2_description/share/pr2_description/cmake/pr2_descriptionConfig.cmake /home/miguel/ws_moveit/devel/share/pr2_description/cmake/pr2_descriptionConfig.cmake
+/home/miguel/ws_moveit/devel/.private/pr2_description/lib/pkgconfig/pr2_description.pc /home/miguel/ws_moveit/devel/lib/pkgconfig/pr2_description.pc

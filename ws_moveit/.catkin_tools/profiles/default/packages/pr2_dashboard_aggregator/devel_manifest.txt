@@ -1,0 +1,4 @@
+pr2_common/pr2_dashboard_aggregator
+/home/miguel/ws_moveit/devel/.private/pr2_dashboard_aggregator/share/pr2_dashboard_aggregator/cmake/pr2_dashboard_aggregatorConfig.cmake /home/miguel/ws_moveit/devel/share/pr2_dashboard_aggregator/cmake/pr2_dashboard_aggregatorConfig.cmake
+/home/miguel/ws_moveit/devel/.private/pr2_dashboard_aggregator/share/pr2_dashboard_aggregator/cmake/pr2_dashboard_aggregatorConfig-version.cmake /home/miguel/ws_moveit/devel/share/pr2_dashboard_aggregator/cmake/pr2_dashboard_aggregatorConfig-version.cmake
+/home/miguel/ws_moveit/devel/.private/pr2_dashboard_aggregator/lib/pkgconfig/pr2_dashboard_aggregator.pc /home/miguel/ws_moveit/devel/lib/pkgconfig/pr2_dashboard_aggregator.pc
