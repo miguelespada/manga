@@ -20,6 +20,7 @@ import pretty_midi
  
 machineNotes = [48, 45, 51]
 humanNotes = [36, 38, 46]
+
 mapping = {}
 
 # mapping[42] = 51

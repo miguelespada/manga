@@ -30,6 +30,8 @@ RobotAdapter::RobotAdapter(App *a){
     
     ofAddListener(ofEvents().update, this, &RobotAdapter::update);
     lastTime = ofGetElapsedTimef();
+    
+    sendZero();
 }
 
 RobotAdapter::~RobotAdapter(){
@@ -76,11 +78,9 @@ void RobotAdapter::sendPath(string path){
 
 
 void RobotAdapter::sendZero(){
-    if(!app->bRobotBusy){
         ofxOscMessage msg;
         msg.setAddress("/zero");
         sender->sendMessage(msg);
-    }
 }
 
 void RobotAdapter::sendTest(){

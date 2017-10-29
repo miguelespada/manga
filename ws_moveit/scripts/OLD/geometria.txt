@@ -1,0 +1,337 @@
+﻿punto  
+  ID: 0940a295-cf6b-4c3a-b0ee-046422e47e25 (144)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (621.626,-67.0842,0).
+punto  
+  ID: b509bcf0-c53e-4bec-a530-aa2f35a07ef6 (143)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (522.203,-56.3508,0).
+punto  
+  ID: 0b5cff89-51ed-461d-97b8-24173d543bbe (142)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (422.781,-45.6173,0).
+--
+punto  
+  ID: bcb8f8cc-f5bf-4e39-9646-6465be534cb9 (141)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (577.555,-239.432,0).
+punto  
+  ID: 237326e9-5321-4c36-837e-e4990dabfe4e (140)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (485.184,-201.123,0).
+punto  
+  ID: e44654d6-b9fe-4a53-a6b8-1d029027d535 (139)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (392.813,-162.814,0).
+
+--
+punto  
+  ID: 8cad6954-e28c-45bb-b516-17e1c8dff1b1 (136)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (486.714,-392.383,0).
+punto  
+  ID: 645e2382-7907-46de-8c19-90e583cd7701 (137)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (408.878,-329.602,0).
+
+punto  
+  ID: 719e4f37-66c9-4da7-8762-f3fc79481551 (138)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (331.041,-266.821,0).
+
+--
+punto  
+  ID: 52634557-308d-4af5-8d46-7551b547e003 (135)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (392.189,-486.824,0).
+punto  
+  ID: 356a1532-1f7f-47b3-b79e-4bdb7f3863b7 (134)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (329.477,-408.932,0).
+punto  
+  ID: bb27512e-668d-4b9c-bfc0-36562e9012c5 (133)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (266.764,-331.041,0).
+
+-- 5
+
+punto  
+  ID: 1a9b2942-44e2-496f-b800-c05d1514daab (130)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (239.158,-577.53,0).  
+punto  
+  ID: 185263da-e945-4aca-b61c-3a776c8f022a (131)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (200.931,-485.126,0).
+punto  
+  ID: 70aff67c-77ae-40ce-97e2-5c9dd0894194 (132)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (162.703,-392.721,0).
+-- 6
+punto  
+  ID: 83af89bc-7e71-4891-9df3-db3bbc4e02e3 (129)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (66.7712,-621.449,0).
+punto  
+  ID: 095a1f2f-13f5-4af1-a24d-120826f19cf6 (128)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (56.1256,-522.017,0).
+punto  
+  ID: 7aee4c00-6813-4e4b-b1ea-7c1f6490d46d (127)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (45.48,-422.585,0).
+-- 7
+punto  
+  ID: 019a8cc9-3dbb-4e84-a71a-86ecb5ee5f1d (126)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (-67.1257,-621.419,0).
+punto  
+  ID: 230dafdd-4dc6-40a0-96f0-5a6566d805dd (125)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (-56.4361,-521.992,0).
+punto  
+  ID: 592e99d4-be1e-4a40-8981-9a5887074ed8 (124)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (-45.7466,-422.565,0).
+-- 8
+punto  
+  ID: db503aa8-85e0-4f7d-8aec-096a29f0c6de (121)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (-239.493,-577.425,0).
+punto  
+  ID: bd26ec90-f7df-482d-9c3a-e162e3bc1650 (122)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (-201.225,-485.037,0).
+punto  
+  ID: c07a70e2-5234-4f49-b0f2-68d15bc061aa (123)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (-162.957,-392.649,0).
+--
+punto  
+  ID: 7e11b076-6c21-42e9-8ea7-5f47ebb727ee (120)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (-392.484,-486.651,0).
+punto  
+  ID: 7d660dc8-2a36-42cc-bcfb-3c370c3efb6d (119)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (-329.737,-408.787,0).
+punto  
+  ID: 767c8a8d-0ffa-4e0b-b9aa-f120494a3743 (117)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (-266.991,-330.923,0).
+punto  
+  ID: 2861b95f-6b76-4316-8de6-9c4ce13a0078 (116)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (-486.967,-392.168,0).
+punto  
+  ID: 78a1e771-9b30-425e-8eac-09c9aad76f90 (115)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (-409.103,-329.421,0).
+punto  
+  ID: 0993915c-89f0-4b08-b32a-ecdad0f4c3a2 (114)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (-331.239,-266.674,0).
+punto  
+  ID: d814437d-d7c7-4114-b025-5bd12356bdc4 (113)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (-577.741,-239.177,0).
+punto  
+  ID: 8b2bfa67-6295-47d9-8c8c-a1507ec61b6d (112)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (-485.353,-200.909,0).
+punto  
+  ID: 33807668-f7e6-4e8a-87ff-b7a9af7efbce (111)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (-392.965,-162.64,0).
+punto  
+  ID: 82419976-3989-426f-8c5a-328f4ab7a16c (108)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (-621.735,-66.8094,0).
+punto  
+  ID: b1a88f52-4c16-4d97-ac1f-ccf3a760b83b (107)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (-522.308,-56.1199,0).
+punto  
+  ID: a1fb1a62-1a8d-426b-9022-f0f4e2c64395 (106)
+  Nombre de capa: Tablero
+  Material de renderizado: 
+    origen = desde capa
+    índice = -1
+  Geometría:
+    Punto válido.
+    Punto en (-422.881,-45.4304,0).
