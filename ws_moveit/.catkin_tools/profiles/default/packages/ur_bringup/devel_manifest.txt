@@ -1,4 +1,0 @@
-universal_robot/ur_bringup
-/home/miguel/manga/ws_moveit/devel/.private/ur_bringup/share/ur_bringup/cmake/ur_bringupConfig-version.cmake /home/miguel/manga/ws_moveit/devel/share/ur_bringup/cmake/ur_bringupConfig-version.cmake
-/home/miguel/manga/ws_moveit/devel/.private/ur_bringup/share/ur_bringup/cmake/ur_bringupConfig.cmake /home/miguel/manga/ws_moveit/devel/share/ur_bringup/cmake/ur_bringupConfig.cmake
-/home/miguel/manga/ws_moveit/devel/.private/ur_bringup/lib/pkgconfig/ur_bringup.pc /home/miguel/manga/ws_moveit/devel/lib/pkgconfig/ur_bringup.pc

@@ -1,4 +1,0 @@
-universal_robot/ur_gazebo
-/home/miguel/manga/ws_moveit/devel/.private/ur_gazebo/share/ur_gazebo/cmake/ur_gazeboConfig-version.cmake /home/miguel/manga/ws_moveit/devel/share/ur_gazebo/cmake/ur_gazeboConfig-version.cmake
-/home/miguel/manga/ws_moveit/devel/.private/ur_gazebo/share/ur_gazebo/cmake/ur_gazeboConfig.cmake /home/miguel/manga/ws_moveit/devel/share/ur_gazebo/cmake/ur_gazeboConfig.cmake
-/home/miguel/manga/ws_moveit/devel/.private/ur_gazebo/lib/pkgconfig/ur_gazebo.pc /home/miguel/manga/ws_moveit/devel/lib/pkgconfig/ur_gazebo.pc
