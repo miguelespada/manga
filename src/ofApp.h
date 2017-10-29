@@ -19,7 +19,7 @@ class ofApp : public ofBaseApp{
     SerialAdapter *serial;
     MidiAdapter *midi;
     PredictorAdapter *predictor;
-    RobotAdapter *robot;
+    RobotAdapter *robot = NULL;
     
 		
 };

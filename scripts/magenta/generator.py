@@ -18,8 +18,8 @@ import pretty_midi
 
 
  
-machineNotes = [36, 45, 46]
-humanNotes = [38, 48, 51]
+machineNotes = [48, 45, 51]
+humanNotes = [36, 38, 46]
 mapping = {}
 
 # mapping[42] = 51
@@ -163,9 +163,10 @@ def generate(primer = example, qpm = 120, num_steps = 120,
   for i in range(12):
     distances.append(getDistance(fragment(bins, i), primer_drums))
 
-  # print "MAX distance: ", max(distances)
+  print "MAX distance: ", max(distances)
+  if max(distances) == 0: return -1
   # print "MAX fragment: ", np.argmax(distances)
   # print "AVG distance: ", np.average(distances)
-
+   
   return encondeFragment(fragment(bins, np.argmax(distances)))
 

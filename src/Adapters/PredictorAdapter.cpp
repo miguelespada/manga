@@ -25,6 +25,7 @@ PredictorAdapter::PredictorAdapter(App *a, RobotAdapter *_robotAdapter){
     
     ofAddListener(ofEvents().keyPressed, this, &PredictorAdapter::keyPressed);
     bMustPredict = false;
+    
 }
 
 PredictorAdapter::~PredictorAdapter(){
@@ -40,8 +41,10 @@ void PredictorAdapter::update(ofEventArgs &args){
     
     if(app->board.lastHumanActivity > 0){
         if(ofGetElapsedTimef() - app->board.lastHumanActivity > Assets::getInstance()->getInactivityTime()){
-            predict();
-            app->board.lastHumanActivity = -1;
+            if(!app->bRobotBusy) {
+                predict();
+                app->board.lastHumanActivity = -1;
+            }
         }
     }
 }
@@ -76,11 +79,15 @@ void PredictorAdapter::keyPressed(ofKeyEventArgs& eventArgs){
     if (eventArgs.key == 'p')
         predict();
     
-    if (eventArgs.key == 'z')
-        if(robotAdapter != NULL) robotAdapter->sendZero();
+    if (eventArgs.key == 'z'){
+        if(robotAdapter != NULL)
+            robotAdapter->sendZero();
+    }
     
-    if (eventArgs.key == 'x')
-        if(robotAdapter != NULL) robotAdapter->sendTest();
+    if (eventArgs.key == 'x'){
+        if(robotAdapter != NULL)
+            robotAdapter->sendTest();
+    }
 }
 
 string PredictorAdapter::serializeChanges(vector<ofPoint> changes){

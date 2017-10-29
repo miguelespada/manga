@@ -15,9 +15,8 @@ void ofApp::setup(){
     app = new App();
     app->setCurrentState(new CheckOnlineState(app));
     
-    
    // serial = new SerialAdapter(app);
-   // midi = new MidiAdapter(app);
+    midi = new MidiAdapter(app);
    // robot = new RobotAdapter(app);
     predictor = new PredictorAdapter(app, robot);
     

@@ -30,8 +30,12 @@ MidiAdapter::MidiAdapter(App *a){
     
     
     ofAddListener(ofEvents().keyPressed, this, &MidiAdapter::keyPressed);
+    ofAddListener(ofEvents().keyReleased, this, &MidiAdapter::keyReleased);
     
     app->bAbletonOnline = bOnline;
+    
+    prevSet = 0;
+    midiOut.sendNoteOn(0 + 4, 30);
 }
 
 MidiAdapter::~MidiAdapter(){
@@ -58,18 +62,48 @@ void MidiAdapter::newMidiMessage(ofxMidiMessage& msg) {
 }
 
 void MidiAdapter::sendNotes(){
+    
     for(int j = 0; j < app->board.getNumRows(); j ++){
         if(app->board.get(j, subBeat / SUBSAMPLERS) && subBeat % SUBSAMPLERS == 0){
-            midiOut.sendNoteOn(app->midiInstrument, Assets::getInstance()->getMidiNote(j), 80);
+            
+            midiOut.sendNoteOn(app->midiInstrument, Assets::getInstance()->getMidiNote(j, app->bInverseMidi), 80);
         }
         else{
-            midiOut.sendNoteOff(app->midiInstrument, Assets::getInstance()->getMidiNote(j), 80);
+            midiOut.sendNoteOff(app->midiInstrument, Assets::getInstance()->getMidiNote(j, app->bInverseMidi), 80);
         }
     }
 }
 
 void MidiAdapter::keyPressed(ofKeyEventArgs& eventArgs){
     if (eventArgs.key == 't') {
-        midiOut.sendControlChange(1, 1, int(ofRandom(0, 127)));
+        midiOut.sendControlChange(1, 1, 127);
+    }
+    
+    if(eventArgs.key == '1'){
+        
+        midiOut.sendNoteOn(prevSet + 4, 30);
+        midiOut.sendNoteOn(4, 30);
+        prevSet = 0;
+    }
+    if(eventArgs.key == '2'){
+        
+        midiOut.sendNoteOn(prevSet + 4, 30);
+        midiOut.sendNoteOn(5, 30);
+        
+        prevSet = 1;
+    }
+    if(eventArgs.key == '3'){
+        
+        midiOut.sendNoteOn(prevSet + 4, 30);
+        midiOut.sendNoteOn(6, 30);
+        prevSet = 2;
+    }
+    
+}
+
+void MidiAdapter::keyReleased(ofKeyEventArgs& eventArgs){
+    if (eventArgs.key == 't') {
+        midiOut.sendControlChange(1, 1, 1);
     }
 }
+

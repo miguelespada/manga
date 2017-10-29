@@ -54,27 +54,41 @@ void RobotAdapter::update(ofEventArgs &args){
         receiver->getNextMessage(&m);
         if(m.getAddress() == "/reset") app->reset();
         if(m.getAddress() == "/ping") bOnline = true;
+        if(m.getAddress() == "/busy") app->bRobotBusy = true;
+        if(m.getAddress() == "/noBusy") app->bRobotBusy = false;
+        
     }
 }
 
 void RobotAdapter::sendPath(string path){
-    ofxOscMessage msg;
-    msg.setAddress("/path");
-    msg.addStringArg(path);
-    sender->sendMessage(msg);
+    
+    if(!app->bRobotBusy){
+        ofxOscMessage msg;
+        msg.setAddress("/path");
+        msg.addStringArg(path);
+        sender->sendMessage(msg);
+    }
+    else{
+        ofLog() << "Prediction skipped"; 
+    }
 }
 
 
 void RobotAdapter::sendZero(){
-    ofxOscMessage msg;
-    msg.setAddress("/zero");
-    sender->sendMessage(msg);    
+    if(!app->bRobotBusy){
+        ofxOscMessage msg;
+        msg.setAddress("/zero");
+        sender->sendMessage(msg);
+    }
 }
 
 void RobotAdapter::sendTest(){
-    ofxOscMessage msg;
-    msg.setAddress("/test");
-    sender->sendMessage(msg);
+    
+    if(!app->bRobotBusy){
+        ofxOscMessage msg;
+        msg.setAddress("/test");
+        sender->sendMessage(msg);
+    }
 }
 
 

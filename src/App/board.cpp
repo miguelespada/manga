@@ -90,7 +90,7 @@ string Board::toString(){
     string s = "";
     
     for(int i = ROWS / 2; i < ROWS; i++){
-        s += ofToString(Assets::getInstance()->getMidiNote(i));
+        s += ofToString(Assets::getInstance()->getMidiNote(i, false));
         s += ",";
         s += board[i].toString();
         s += ";";
@@ -101,7 +101,7 @@ string Board::toString(){
 
 int Board::pitchToRow(int pitch){
     for(int i = 0; i < ROWS; i ++){
-        if(Assets::getInstance()->getMidiNote(i) == pitch) return i;
+        if(Assets::getInstance()->getMidiNote(i, false) == pitch) return i;
     }
     return -1;
 }

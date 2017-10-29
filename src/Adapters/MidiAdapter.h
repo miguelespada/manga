@@ -23,6 +23,7 @@ class MidiAdapter: public ofxMidiListener{
     
     void newMidiMessage(ofxMidiMessage& eventArgs);
     void keyPressed(ofKeyEventArgs& eventArgs);
+    void keyReleased(ofKeyEventArgs& eventArgs);
     
     stringstream text;
     
@@ -41,6 +42,7 @@ class MidiAdapter: public ofxMidiListener{
     
     void sendNotes();
     
+    int prevSet = 0;
 public:
     MidiAdapter(App *a);
     

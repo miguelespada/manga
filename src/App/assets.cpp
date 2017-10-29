@@ -43,28 +43,8 @@ bool Assets::getAutoUpdatePredictions(){
     return getData("updatePredictions").asBool();
 }
 
-int Assets::getMidiNote(int i){
-    switch (i) {
-        case 0:
-            return 36;
-            break;
-        case 1:
-            return 45;
-            break;
-        case 2:
-            return 46;
-            break;
-        case 3:
-            return 38;
-            break;
-        case 4:
-            return 48;
-            break;
-        case 5:
-            return 51;
-            break;
-        default:
-            break;
-    }
-    
+int Assets::getMidiNote(int i, bool bInverse){
+    int notes[6] = {48, 46, 51, 46, 38, 36};
+    if(bInverse) return notes[5 - i];
+    return notes[i];
 }

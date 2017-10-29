@@ -25,9 +25,14 @@ public:
     bool bRobotDriverOnline;
     bool bRotate;
     
+    
+    
     bool bAutoUpdatePredictions;
     
+    bool bRobotBusy;
     int midiInstrument;
+    void nextMidiInstrument();
+    bool bInverseMidi;
     
     bool online();
     
