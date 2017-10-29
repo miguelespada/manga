@@ -16,7 +16,7 @@ bool values[16];
 int C;
 int STATE;
 
-bool DEBUG = true;
+bool DEBUG = false;
 
 int myDelay = 100;
 
