@@ -92,7 +92,7 @@ void StandbyState::update(){
 
 
 void StandbyState::next(){
-    app->setCurrentState(new CheckOnlineState(app));
+    app->setCurrentState(new RunningState(app));
     delete this;
 };
 

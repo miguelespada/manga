@@ -15,10 +15,10 @@ void ofApp::setup(){
     app = new App();
     app->setCurrentState(new CheckOnlineState(app));
     
-   // serial = new SerialAdapter(app);
+    serial = new SerialAdapter(app);
     midi = new MidiAdapter(app);
    // robot = new RobotAdapter(app);
-    predictor = new PredictorAdapter(app, robot);
+  //  predictor = new PredictorAdapter(app, robot);
     
     
 #ifdef DEBUG
@@ -39,7 +39,7 @@ void ofApp::draw(){
     ofPushMatrix();
     if(app->bRotate){
         ofTranslate(ofGetWidth()/2, ofGetHeight() / 2);
-        ofRotate(90);
+        ofRotate(-90);
         ofTranslate(-ofGetWidth()/2, - ofGetHeight() / 2);
     }
     app->draw();

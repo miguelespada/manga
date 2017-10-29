@@ -11,5 +11,6 @@
 
 #include "standbyState.h"
 #include "CheckOnlineState.h"
+#include "RunningState.h"
 
 #endif

@@ -16,6 +16,11 @@ App::App():BaseApp(){
     for(int i = 0; i < 4; i ++){
         extras[i] = false;
     }
+    
+    
+    idleMessages.push_back("Let's play");
+    idleMessages.push_back("Let's rock");
+    idleMessages.push_back("Play with me");
 }
 
 void App::drawBoard(int x, int y){

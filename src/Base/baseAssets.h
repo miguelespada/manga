@@ -12,6 +12,8 @@ public:
     Json::Value getData(string key);
     ofxJSONElement settings;
     
+    ofTrueTypeFont font;
+    
     virtual void loadAssets()=0;
     
     

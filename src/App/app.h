@@ -39,6 +39,8 @@ public:
     bool extras[4];
     void drawExtras(int x, int y);
     
+    vector<string> idleMessages;
+    
     
 };
 
