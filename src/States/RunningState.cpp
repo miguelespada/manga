@@ -23,9 +23,10 @@ void RunningState::draw(){
     ofBackground(255);
     ofSetColor(0);
     
-    if(ofGetElapsedTimef() - lastMessageChange > 1){
+    if(ofGetElapsedTimef() - lastMessageChange > 3){
         lastMessageChange = ofGetElapsedTimef();
-        nMsg= int(ofRandom(app->idleMessages.size()));
+        nMsg = (nMsg + 1) % app->idleMessages.size();
+        
     }
     
     string s = app->idleMessages[nMsg];
