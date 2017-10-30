@@ -7,6 +7,7 @@ RunningState::RunningState(App *a):BaseState(a){
     ofSetWindowShape(1920, 1080);
     ofSetFullscreen(true);
     lastMessageChange = -1;
+    a->bRobotEnabled = true;
 };
 
 RunningState::~RunningState(){

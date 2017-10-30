@@ -22,6 +22,9 @@ void SerialAdapter::update(ofEventArgs &args){
     app->bArduinoOnline = bOnline;
     sendTempo();
     readBoard();
+    
+    app->bInverseMidi = app->extras[0];
+    app->bSpeed = app->extras[3];
 }
 
 void SerialAdapter::sendTempo(){
@@ -87,6 +90,12 @@ void SerialAdapter::updateBoard(unsigned char bytes[]){
         app->board.set(channel, i + 8, bool(v % 2));
         v /= 2;
     }
+    
+    
+    for(int i = 0; i < 4; i ++){
+        app->prevExtras[i] = app->extras[i];
+    }
+    
     if(channel == 4){
         app->extras[0] = bool(v % 2);
         v /= 2;
@@ -99,6 +108,15 @@ void SerialAdapter::updateBoard(unsigned char bytes[]){
         v /= 2;
         app->extras[3] = bool(v % 2);
         v /= 2;
+    }
+    
+    
+    if( app->extras[1] != app->prevExtras[1] ){
+        app->bFilter = true;
+    }
+    
+    if( app->extras[2] != app->prevExtras[2] ){
+        app->bChangeMidi = true;
     }
 }
 

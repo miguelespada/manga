@@ -25,8 +25,6 @@ public:
     bool bRobotDriverOnline;
     bool bRotate;
     
-    
-    
     bool bAutoUpdatePredictions;
     
     bool bRobotBusy;
@@ -34,9 +32,16 @@ public:
     void nextMidiInstrument();
     bool bInverseMidi;
     
+    bool bFilter;
+    bool bSpeed;
+    bool bChangeMidi;
+    
+    bool bRobotEnabled;
+    
     bool online();
     
     bool extras[4];
+    bool prevExtras[4];
     void drawExtras(int x, int y);
     
     vector<string> idleMessages;

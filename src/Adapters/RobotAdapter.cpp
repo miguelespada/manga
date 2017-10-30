@@ -65,14 +65,16 @@ void RobotAdapter::update(ofEventArgs &args){
 
 void RobotAdapter::sendPath(string path){
     
-    if(!app->bRobotBusy){
-        ofxOscMessage msg;
-        msg.setAddress("/path");
-        msg.addStringArg(path);
-        sender->sendMessage(msg);
-    }
-    else{
-        ofLog() << "Prediction skipped"; 
+    if(app->bRobotEnabled){
+        if(!app->bRobotBusy){
+            ofxOscMessage msg;
+            msg.setAddress("/path");
+            msg.addStringArg(path);
+            sender->sendMessage(msg);
+        }
+        else{
+            ofLog() << "Prediction skipped";
+        }
     }
 }
 

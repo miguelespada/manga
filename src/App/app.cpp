@@ -10,11 +10,16 @@ App::App():BaseApp(){
     bRotate = false;
     bRobotBusy = false;
     bInverseMidi = false;
+    bRobotEnabled = false;
+    bFilter = false;
+    bSpeed = false;
+    bChangeMidi = false;
     
     bAutoUpdatePredictions = Assets::getInstance()->getAutoUpdatePredictions();
     
     for(int i = 0; i < 4; i ++){
         extras[i] = false;
+        prevExtras[i] = false;
     }
     
     

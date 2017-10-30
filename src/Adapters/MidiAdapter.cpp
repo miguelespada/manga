@@ -28,7 +28,6 @@ MidiAdapter::MidiAdapter(App *a){
     
     subBeat = 0;
     
-    
     ofAddListener(ofEvents().keyPressed, this, &MidiAdapter::keyPressed);
     ofAddListener(ofEvents().keyReleased, this, &MidiAdapter::keyReleased);
     
@@ -59,13 +58,34 @@ void MidiAdapter::newMidiMessage(ofxMidiMessage& msg) {
         app->board.setCursor(ofMap(subBeat, 0, totalSamplers, 0, 1));
         sendNotes();
     }
+    
+    if( app->bFilter ){
+        midiOut.sendNoteOn(5, 100);
+        app->bFilter = false;
+    }
+    
+    
+    if( app->bChangeMidi ){
+        midiOut.sendNoteOn(app->midiInstrument + 3, 30);
+        app->midiInstrument = (app->midiInstrument + 1);
+        if(app->midiInstrument == 4) app->midiInstrument  = 1;
+        midiOut.sendNoteOn(app->midiInstrument + 3, 30);
+        app->bChangeMidi = false;
+    }
+    
+    if( app->bSpeed ){
+        midiOut.sendControlChange(1, 1, 127);
+    }
+    else{
+        midiOut.sendControlChange(1, 1, 1);
+    }
+    
 }
 
 void MidiAdapter::sendNotes(){
     
     for(int j = 0; j < app->board.getNumRows(); j ++){
         if(app->board.get(j, subBeat / SUBSAMPLERS) && subBeat % SUBSAMPLERS == 0){
-            
             midiOut.sendNoteOn(app->midiInstrument, Assets::getInstance()->getMidiNote(j, app->bInverseMidi), 80);
         }
         else{
@@ -98,6 +118,11 @@ void MidiAdapter::keyPressed(ofKeyEventArgs& eventArgs){
         midiOut.sendNoteOn(6, 30);
         prevSet = 2;
     }
+    
+    if(eventArgs.key == 'F'){
+        midiOut.sendNoteOn(5, 100);
+    }
+    
     
 }
 
