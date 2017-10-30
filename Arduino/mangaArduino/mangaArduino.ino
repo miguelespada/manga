@@ -57,7 +57,7 @@ void loop(){
     
 
     for(int i=0;i<c;i++) {
-      pixels.setPixelColor(i, pixels.Color(0,0,255)); // Moderately bright green color.
+      pixels.setPixelColor(i, pixels.Color(255,255,255)); // Moderately bright green color.
     }
     
     for(int i=c;i<NUMPIXELS;i++) {
