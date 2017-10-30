@@ -30,11 +30,11 @@ App::App():BaseApp(){
     rockMessages.push_back("I'm not a woman.\nI'm a force of nature.\nCourtney Love");
     
     
-    humanMessages.push_back("Even randonmess\nis within a set of\n paramenters; thresholds...\nClyde DeSouza");
-    humanMessages.push_back("By 2029, computers will have\nemotional intelligence\nand be convincing as people\nRay Kruzweil");
-    humanMessages.push_back("By the 2030s,\nthe nonbiological portion of our\nintelligence will predominate.\nRay Kruzweil");
-    humanMessages.push_back("As order exponentially\n increases, time exponentially\n speeds up.\nRay Kruzweil");
-    humanMessages.push_back("The cortex craves for information,\nbut it can longer contain\nand creatively process it all.\nStelarc");
+    humanMessages.push_back("Even randonmess\nis within a set of\nparamenters; thresholds...\nClyde DeSouza");
+    humanMessages.push_back("By 2029, computers will have\nemotional intelligence\nand be convincing as people\nRay Kurzweil");
+    humanMessages.push_back("By the 2030s,\nthe nonbiological portion of our\nintelligence will predominate.\nRay Kurzweil");
+    humanMessages.push_back("As order exponentially\n increases, time exponentially\n speeds up.\nRay Kurzweil");
+    humanMessages.push_back("The cortex craves for\ninformation, but\n it can longer contain\nand creatively process it all.\nStelarc");
 }
 
 void App::drawBoard(int x, int y){

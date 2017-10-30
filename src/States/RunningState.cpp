@@ -8,7 +8,8 @@ RunningState::RunningState(App *a):BaseState(a){
     ofSetWindowPosition(0, 0);
     //ofSetFullscreen(true);
     
-    lastMessageChange = -1;
+    lastHumanMessageChange = -1;
+    lastMachineMessageChange = -1;
     a->bRobotEnabled = true;
 };
 
@@ -26,9 +27,13 @@ void RunningState::draw(){
     ofBackground(255);
     ofSetColor(0);
     
-    if(ofGetElapsedTimef() - lastMessageChange > 3){
-        lastMessageChange = ofGetElapsedTimef();
+    if(ofGetElapsedTimef() - lastMachineMessageChange > 1 && ofGetElapsedTimef() - app->board.lastMachineActivity < 0.5 ){
+        lastMachineMessageChange = ofGetElapsedTimef();
         nMachineMsg = (nMachineMsg + 1) % app->rockMessages.size();
+    }
+    
+    if(ofGetElapsedTimef() - lastHumanMessageChange > 1 && ofGetElapsedTimef() - app->board.lastHumanActivity < 0.5 ){
+        lastHumanMessageChange = ofGetElapsedTimef();
         nHumanMsg = (nHumanMsg + 1) % app->humanMessages.size();
     }
     

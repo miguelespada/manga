@@ -7,7 +7,8 @@
 
 class RunningState: public BaseState
 {
-    float lastMessageChange;
+    float lastHumanMessageChange;
+    float lastMachineMessageChange;
     int nMachineMsg;
     int nHumanMsg;
 public:
