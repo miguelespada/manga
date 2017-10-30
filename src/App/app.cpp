@@ -41,6 +41,7 @@ App::App():BaseApp(){
     humanMessages.push_back("You have to talk about\nThe Terminator if you're\ntalking about artificial intelligence.\nGray Scott");
     humanMessages.push_back("The key to artificial intelligence\nhas always been the\nrepresentation.\nJeff Hawkins");
     humanMessages.push_back("Some people worry\nthat artificial intelligence\nwill make us feel inferior,\nbut then, anybody in his right\nmind should have an inferiority\ncomplex every time he looks\nat a flower.\nAlan Kay");
+    humanMessages.push_back("The sad thing about\nartificial intelligence is\nthat it lacks artifice and\ntherefore intelligence.\nJean Baudrillard");
 }
 
 void App::drawBoard(int x, int y){

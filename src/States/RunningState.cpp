@@ -30,12 +30,12 @@ void RunningState::draw(){
     
     if(ofGetElapsedTimef() - lastMachineMessageChange > 1 && ofGetElapsedTimef() - app->board.lastMachineActivity < 0.5 ){
         lastMachineMessageChange = ofGetElapsedTimef();
-        nMachineMsg = (nMachineMsg + 1) % app->rockMessages.size();
+        nMachineMsg = int(ofRandom(app->rockMessages.size()));
     }
     
     if(ofGetElapsedTimef() - lastHumanMessageChange > 1 && ofGetElapsedTimef() - app->board.lastHumanActivity < 0.5 ){
         lastHumanMessageChange = ofGetElapsedTimef();
-        nHumanMsg = (nHumanMsg + 1) % app->humanMessages.size();
+        nHumanMsg = int(ofRandom(app->humanMessages.size()));
     }
     
     string s = app->rockMessages[nMachineMsg];
