@@ -47,6 +47,10 @@ public:
     void setHumanActivity();
     void unsetHumanActivity();
     
+    
+    void setMachineActivity();
+    void unsetMachineActivity();
+    
     int lastNumberOfChanges;
     
     bool isClean();

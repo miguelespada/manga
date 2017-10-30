@@ -28,15 +28,17 @@ void RunningState::draw(){
     
     if(ofGetElapsedTimef() - lastMessageChange > 3){
         lastMessageChange = ofGetElapsedTimef();
-        nMsg = (nMsg + 1) % app->idleMessages.size();
-        
+        nMachineMsg = (nMachineMsg + 1) % app->rockMessages.size();
+        nHumanMsg = (nHumanMsg + 1) % app->humanMessages.size();
     }
     
-    string s = app->idleMessages[nMsg];
+    string s = app->rockMessages[nMachineMsg];
     ofRectangle boundingBox  =  Assets::getInstance()->font.getStringBoundingBox(s, 0, 0);
     Assets::getInstance()->font.drawString(s, ofGetWidth() / 2 - boundingBox.width / 2, ofGetHeight() / 4);
 
-Assets::getInstance()->font.drawString(s, 3* ofGetWidth() / 2 - boundingBox.width / 2, ofGetHeight() / 4);
+    s = app->humanMessages[nHumanMsg];
+    boundingBox  =  Assets::getInstance()->font.getStringBoundingBox(s, 0, 0);
+    Assets::getInstance()->font.drawString(s, 3* ofGetWidth() / 2 - boundingBox.width / 2, ofGetHeight() / 4);
 };
 
 void RunningState::update(){

@@ -23,11 +23,18 @@ App::App():BaseApp(){
     }
     
     
-    idleMessages.push_back("I'd rather be dead than cool.\nKurt Cobain");
-    idleMessages.push_back("Darling,\nmy attitude is 'fuck it'\nI'm doing everything\nwith everyone.\nFreddie Mercury");
-    idleMessages.push_back("Society has traditionally\nalways tried to find\nscapegoats for its problems.\nWell here I am.\nMarilyn Manson");
-    idleMessages.push_back("Christians are a lot\n like dinosaurs\n- about to become extinct.\nMarilyn Manson");
-    idleMessages.push_back("I'm not a woman.\nI'm a force of nature.\nCourtney Love");
+    rockMessages.push_back("I'd rather be dead than cool.\nKurt Cobain");
+    rockMessages.push_back("Darling,\nmy attitude is 'fuck it'\nI'm doing everything\nwith everyone.\nFreddie Mercury");
+    rockMessages.push_back("Society has traditionally\nalways tried to find\nscapegoats for its problems.\nWell here I am.\nMarilyn Manson");
+    rockMessages.push_back("Christians are a lot\n like dinosaurs\n- about to become extinct.\nMarilyn Manson");
+    rockMessages.push_back("I'm not a woman.\nI'm a force of nature.\nCourtney Love");
+    
+    
+    humanMessages.push_back("Even randonmess\nis within a set of\n paramenters; thresholds...\nClyde DeSouza");
+    humanMessages.push_back("By 2029, computers will have\nemotional intelligence\nand be convincing as people\nRay Kruzweil");
+    humanMessages.push_back("By the 2030s,\nthe nonbiological portion of our\nintelligence will predominate.\nRay Kruzweil");
+    humanMessages.push_back("As order exponentially\n increases, time exponentially\n speeds up.\nRay Kruzweil");
+    humanMessages.push_back("The cortex craves for information,\nbut it can longer contain\nand creatively process it all.\nStelarc");
 }
 
 void App::drawBoard(int x, int y){

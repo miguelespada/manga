@@ -44,7 +44,8 @@ public:
     bool prevExtras[4];
     void drawExtras(int x, int y);
     
-    vector<string> idleMessages;
+    vector<string> rockMessages;
+    vector<string> humanMessages;
     
     
 };

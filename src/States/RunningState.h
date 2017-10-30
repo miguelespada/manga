@@ -8,7 +8,8 @@
 class RunningState: public BaseState
 {
     float lastMessageChange;
-    int nMsg;
+    int nMachineMsg;
+    int nHumanMsg;
 public:
     RunningState(App *a);
     ~RunningState();
