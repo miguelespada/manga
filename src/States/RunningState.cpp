@@ -31,7 +31,7 @@ void RunningState::draw(){
     
     string s = app->idleMessages[nMsg];
     ofRectangle boundingBox  =  Assets::getInstance()->font.getStringBoundingBox(s, 0, 0);
-    Assets::getInstance()->font.drawString(s, ofGetWidth() / 2 - boundingBox.width / 2, ofGetHeight() / 2);
+    Assets::getInstance()->font.drawString(s, ofGetWidth() / 2 - boundingBox.width / 2, ofGetHeight() / 4);
 };
 
 void RunningState::update(){
