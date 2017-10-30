@@ -18,7 +18,8 @@ void Board::toggle(int j, int  i){
 void Board::set(int j, int i, bool v){
     if(board[j].get(i) != v){
         board[j].set(i, v);
-        setHumanActivity();
+        if(j >= ROWS / 2)
+            setHumanActivity();
     }
 }
 

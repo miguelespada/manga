@@ -1,7 +1,7 @@
 {
   "local_port" : 8001,
   "controller_port" : 7000,
-  "controller_host" : "127.0.0.1",
+  "controller_host" : "192.168.1.62",
   "updatePredictions" : false,
   "inactivityTime" : 1,
 

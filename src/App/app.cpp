@@ -10,17 +10,24 @@ App::App():BaseApp(){
     bRotate = false;
     bRobotBusy = false;
     bInverseMidi = false;
+    bRobotEnabled = false;
+    bFilter = false;
+    bSpeed = false;
+    bChangeMidi = false;
     
     bAutoUpdatePredictions = Assets::getInstance()->getAutoUpdatePredictions();
     
     for(int i = 0; i < 4; i ++){
         extras[i] = false;
+        prevExtras[i] = false;
     }
     
     
-    idleMessages.push_back("Let's play");
-    idleMessages.push_back("Let's rock");
-    idleMessages.push_back("Play with me");
+    idleMessages.push_back("I'd rather be dead than cool.\nKurt Cobain");
+    idleMessages.push_back("Darling,\nmy attitude is 'fuck it'\nI’m doing everything\nwith everyone.\nFreddie Mercury");
+    idleMessages.push_back("Society has traditionally\nalways tried to find\nscapegoats for its problems.\nWell here I am.\nMarilyn Manson");
+    idleMessages.push_back("Christians are a lot\n like dinosaurs\n- about to become extinct.\nMarilyn Manson");
+    idleMessages.push_back("I'm not a woman.\nI'm a force of nature.\nCourtney Love");
 }
 
 void App::drawBoard(int x, int y){

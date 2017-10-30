@@ -2,6 +2,7 @@
 
 CheckOnlineState::CheckOnlineState(App *a):BaseState(a){
     BaseState::initialize();
+    a->bRobotEnabled = false;
 };
 
 CheckOnlineState::~CheckOnlineState(){
@@ -74,10 +75,6 @@ void CheckOnlineState::draw(){
         ofSetColor(0, 255, 0);
         ofDrawBitmapString("Robot not busy", 0, 0);
     }
-    
-   
-    
-    
     ofPopStyle();
     ofPopMatrix();
     
