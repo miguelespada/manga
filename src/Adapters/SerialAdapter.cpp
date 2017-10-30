@@ -23,7 +23,8 @@ void SerialAdapter::update(ofEventArgs &args){
     sendTempo();
     readBoard();
     
-    app->bInverseMidi = app->extras[0];    
+    app->bInverseMidi = app->extras[0];
+    app->bSpeed = app->extras[3];
 }
 
 void SerialAdapter::sendTempo(){
@@ -114,5 +115,8 @@ void SerialAdapter::updateBoard(unsigned char bytes[]){
         app->bFilter = true;
     }
     
+    if( app->extras[2] != app->prevExtras[2] ){
+        app->bChangeMidi = true;
+    }
 }
 

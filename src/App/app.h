@@ -33,6 +33,8 @@ public:
     bool bInverseMidi;
     
     bool bFilter;
+    bool bSpeed;
+    bool bChangeMidi;
     
     bool bRobotEnabled;
     

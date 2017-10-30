@@ -12,6 +12,8 @@ App::App():BaseApp(){
     bInverseMidi = false;
     bRobotEnabled = false;
     bFilter = false;
+    bSpeed = false;
+    bChangeMidi = false;
     
     bAutoUpdatePredictions = Assets::getInstance()->getAutoUpdatePredictions();
     

@@ -64,6 +64,22 @@ void MidiAdapter::newMidiMessage(ofxMidiMessage& msg) {
         app->bFilter = false;
     }
     
+    
+    if( app->bChangeMidi ){
+        midiOut.sendNoteOn(app->midiInstrument + 3, 30);
+        app->midiInstrument = (app->midiInstrument + 1);
+        if(app->midiInstrument == 4) app->midiInstrument  = 1;
+        midiOut.sendNoteOn(app->midiInstrument + 3, 30);
+        app->bChangeMidi = false;
+    }
+    
+    if( app->bSpeed ){
+        midiOut.sendControlChange(1, 1, 127);
+    }
+    else{
+        midiOut.sendControlChange(1, 1, 1);
+    }
+    
 }
 
 void MidiAdapter::sendNotes(){
