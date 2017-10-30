@@ -149,11 +149,11 @@ def loadMatrix():
 
 def loadExtraButtons():
     global extra1, extra2
-    extra1data = "0,0,0.2,0.22,0.010000,0.00500,0.005000"
+    extra1data = "0,0,0.2,0.22,0.010000,0.00500,0.007000"
     extra1 = Point()
     extra1.fromString(extra1data)
 
-    extra2data = "0,0,-0.2,-0.2,0.025000,0.04100,0.005000"
+    extra2data = "0,0,-0.2,-0.2,0.025000,0.04100,0.007000"
     extra2 = Point()
     extra2.fromString(extra2data)
 
@@ -251,6 +251,67 @@ def pushAll():
             time.sleep(0.1)
     goToPose(zeroPose)
 
+def pushExtra():
+    goToPose(zeroPose)
+    pose = goToPoint(extra1)
+    time.sleep(0.1)
+    pushAndHold(pose, 1, extra1.tolerance)
+    time.sleep(0.1)
+    goToPose(zeroPose)
+    pose = goToPoint(extra2)
+    time.sleep(0.1)
+    pushAndHold(pose, 1, extra2.tolerance)
+    time.sleep(0.1)
+    goToPose(zeroPose)
+
+def pushButtonExtra(b, t):
+    goToPose(zeroPose)
+    if b == 0:
+        pose = goToPoint(extra1)
+        time.sleep(0.1)
+        pushAndHold(pose, t, extra1.tolerance)
+        time.sleep(0.1)
+    if b == 1:
+        pose = goToPoint(extra2)
+        time.sleep(0.1)
+        pushAndHold(pose, t, extra2.tolerance)
+        time.sleep(0.1)
+    goToPose(zeroPose)
+
+
+def pushAndHold(pose, t = 1,  tol = PUSH_TOLERANCE):
+    # Tolerancia [-0.002, 0.004]
+    waypoints = [group.get_current_pose().pose]
+    waypoints.append(copy.deepcopy(pose))
+    pose.position.z = 0.055 + tol 
+    waypoints.append(copy.deepcopy(pose))
+    
+    (plan, fraction) = group.compute_cartesian_path(
+                         waypoints,   # waypoints to follow
+                         0.0003,        # eef_step
+                         0.0)         # jump_threshold
+    if fraction == 1.0: 
+        success = group.execute(plan)
+        if not(success): print "Error"
+    else:
+        print fraction
+    
+    time.sleep(t)
+    
+    waypoints = []
+    pose.position.z = 0.1
+    waypoints.append(copy.deepcopy(pose))
+    (plan, fraction) = group.compute_cartesian_path(
+                         waypoints,   # waypoints to follow
+                         0.0003,        # eef_step
+                         0.0)         # jump_threshold
+    if fraction == 1.0: 
+        success = group.execute(plan)
+        if not(success): print "Error"
+    else:
+        print fraction
+
+
 def pushTwo((x0, y0), (x1, y1)):
     loadMatrix()
     before = time.time()
@@ -279,7 +340,8 @@ def createPath(coords, last = (2, 6)):
         last = coord
     print "Length", len(coords)
     print "Total time", time.time() - before
-
+    goToZero()
+    
 def addConstrains():
     pose = group.get_current_pose()
     constraint = Constraints()
