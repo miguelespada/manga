@@ -2,6 +2,7 @@
 
 StandbyState::StandbyState(App *a):BaseState(a){
     BaseState::initialize();
+    a->bRobotEnabled = true;
 };
 
 StandbyState::~StandbyState(){
