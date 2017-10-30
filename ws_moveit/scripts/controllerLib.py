@@ -7,7 +7,6 @@ import geometry_msgs.msg
 import math
 from geometry_msgs.msg import PoseStamped
 import time
-import random
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
 import numpy as np
 from moveit_msgs.msg import Constraints, OrientationConstraint
