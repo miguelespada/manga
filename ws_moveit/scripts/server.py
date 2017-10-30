@@ -3,6 +3,7 @@ from OSC import OSCServer, OSCClient, OSCMessage
 import sys
 from time import sleep
 from random import shuffle
+from random import random
 
 
 import socket
@@ -69,7 +70,6 @@ def trajectory_callback(path, tags, args, source):
     tokens = trajectory.split(";")
     tPoints = []
     for t in tokens[:-1]:
-        print t
         tPoints.append(map(lambda x: int(x), t.split(",")))
 
     client = OSCClient()
@@ -79,6 +79,14 @@ def trajectory_callback(path, tags, args, source):
     shuffle(tPoints)
     print "Executing", tPoints
     createPath(tPoints)
+   
+    if random() > 0.5:
+        b = 0
+        if random() > 0.5:
+            b = 1
+        print "Push extra", b
+        pushButtonExtra(b, 0.5 + random() * 3)
+
 
     client = OSCClient()
     client.connect( (source[0], 8001) )
