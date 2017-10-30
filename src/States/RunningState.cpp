@@ -6,10 +6,11 @@ RunningState::RunningState(App *a):BaseState(a){
     ofHideCursor();
     ofSetWindowShape(1080 * 2, 1920);
     ofSetWindowPosition(0, 0);
-    //ofSetFullscreen(true);
     
     lastHumanMessageChange = -1;
+    nMachineMsg = 0;
     lastMachineMessageChange = -1;
+    nHumanMsg = 0;
     a->bRobotEnabled = true;
 };
 
@@ -44,6 +45,10 @@ void RunningState::draw(){
     s = app->humanMessages[nHumanMsg];
     boundingBox  =  Assets::getInstance()->font.getStringBoundingBox(s, 0, 0);
     Assets::getInstance()->font.drawString(s, 3* ofGetWidth() / 2 - boundingBox.width / 2, ofGetHeight() / 4);
+	
+    
+    app->drawBoard(1080/2 - CELL_SIZE * 6, 1400);
+    app->drawBoard(3*1080/2 - CELL_SIZE * 6 , 1400);
 };
 
 void RunningState::update(){

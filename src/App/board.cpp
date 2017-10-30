@@ -69,7 +69,7 @@ void Board::draw(int x, int y){
     ofTranslate(anchor);
     for(int i = 0; i < ROWS; i++){
         board[i].draw();
-        ofDrawBitmapString(ofToString(Assets::getInstance()->getMidiNote(i, false)), 10, 25);
+       // ofDrawBitmapString(ofToString(Assets::getInstance()->getMidiNote(i, false)), 10, 25);
         ofTranslate(0, CELL_SIZE);
     }
     
