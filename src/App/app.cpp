@@ -31,9 +31,10 @@ App::App():BaseApp(){
     rockMessages.push_back("I could never quite\nunderstand cocaine,\nyou can't get a hard on,\nyou can't sleep\nand you grind your teeth,\nwhat the fuck is\ngood about that?\nJon Bon Jovi");
     rockMessages.push_back("We believed that\nanything that was worth doing\nwas worth overdoing.\nSteven Tyler");
     rockMessages.push_back("A kid once said to me:\n'Do you get hangovers?'\nI said,\n'To get hangovers you have\nto stop drinking.'\nIan 'Lemmy' Kilmister");
-    
-    
-    
+    rockMessages.push_back("Just because I cut the\nheads off dolls doesn't mean\nI hate babies, I just\nhate dolls.\nAlice Cooper");
+    rockMessages.push_back("The only thing I use\nthe Rolling Stone for is\ntoilet paper when\nI run out.\nNeal Schon of Journey");
+    rockMessages.push_back("Jazz, isn't that just a\nseries of mistakes diguised\nas musical composition?\nSpinal Tap");
+                           
     humanMessages.push_back("Even randonmess\nis within a set of\nparamenters; thresholds...\nClyde DeSouza");
     humanMessages.push_back("By 2029, computers will have\nemotional intelligence\nand be convincing as people\nRay Kurzweil");
     humanMessages.push_back("By the 2030s,\nthe nonbiological portion\nof our intelligence \nwill predominate.\nRay Kurzweil");
