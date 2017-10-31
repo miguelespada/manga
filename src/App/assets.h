@@ -9,7 +9,11 @@ class Assets: public BaseAssets
     static Assets* instance;
     Assets();
 
+    
 public:
+    ofImage eys;
+    ofImage jessica;
+    
     static Assets* getInstance();
     void loadAssets();
     

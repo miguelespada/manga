@@ -49,6 +49,9 @@ void RunningState::draw(){
     
     app->drawBoard(1080/2 - CELL_SIZE * 6, 3*ofGetHeight() / 4 - CELL_SIZE * 3);
     app->drawBoard(3*1080/2 - CELL_SIZE * 6, 3*ofGetHeight() / 4 - CELL_SIZE * 3);
+    
+    
+    Assets::getInstance()->eys.draw(1080/2 - 100, ofGetWindowHeight() - 250, 200, 200);
 };
 
 void RunningState::update(){
