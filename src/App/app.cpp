@@ -28,20 +28,25 @@ App::App():BaseApp(){
     rockMessages.push_back("Society has traditionally\nalways tried to find\nscapegoats for its problems.\nWell here I am.\nMarilyn Manson");
     rockMessages.push_back("Christians are a lot\n like dinosaurs\n- about to become extinct.\nMarilyn Manson");
     rockMessages.push_back("I'm not a woman.\nI'm a force of nature.\nCourtney Love");
+    rockMessages.push_back("I could never quite\nunderstand cocaine,\nyou can't get a hard on,\nyou can't sleep\nand you grind your teeth,\nwhat the fuck is\ngood about that?\nJon Bon Jovi");
+    rockMessages.push_back("We believed that\nanything that was worth doing\nwas worth overdoing.\nSteven Tyler");
+    rockMessages.push_back("A kid once said to me:\n'Do you get hangovers?'\nI said,\n'To get hangovers you have\nto stop drinking.'\nIan 'Lemmy' Kilmister");
+    
     
     
     humanMessages.push_back("Even randonmess\nis within a set of\nparamenters; thresholds...\nClyde DeSouza");
     humanMessages.push_back("By 2029, computers will have\nemotional intelligence\nand be convincing as people\nRay Kurzweil");
-    humanMessages.push_back("By the 2030s,\nthe nonbiological portion of our\nintelligence will predominate.\nRay Kurzweil");
+    humanMessages.push_back("By the 2030s,\nthe nonbiological portion\nof our intelligence \nwill predominate.\nRay Kurzweil");
     humanMessages.push_back("As order exponentially\nincreases, time exponentially\nspeeds up.\nRay Kurzweil");
     humanMessages.push_back("The cortex craves for\ninformation, but\nit can longer contain\nand creatively process it all.\nStelarc");
     humanMessages.push_back("The risk of something\nseriously dangerous\nhappening is in the five-year\ntimeframe. 10 years at most.\nEllon Musk");
     humanMessages.push_back("The real question is,\nwhen will we draft an\nartificial intelligence\nbill of rights?\nGray Scott");
     humanMessages.push_back("So instead of\nartificial intelligence,\nI think we'll augment\nour intelligence.\nGinni Rometty");
-    humanMessages.push_back("You have to talk about\nThe Terminator if you're\ntalking about artificial intelligence.\nGray Scott");
-    humanMessages.push_back("The key to artificial intelligence\nhas always been the\nrepresentation.\nJeff Hawkins");
-    humanMessages.push_back("Some people worry\nthat artificial intelligence\nwill make us feel inferior,\nbut then, anybody in his right\nmind should have an inferiority\ncomplex every time he looks\nat a flower.\nAlan Kay");
+    humanMessages.push_back("You have to talk \nabout The Terminator\nif you're talking about\nartificial intelligence.\nGray Scott");
+    humanMessages.push_back("The key to artificial\nintelligence has always\nbeen the representation.\nJeff Hawkins");
+    humanMessages.push_back("Some people worry\nthat artificial intelligence\nwill make us feel inferior,\nbut then, anybody in \nhis rightmind should\nhave an inferiority\ncomplex every time he\nlooks  at a flower.\nAlan Kay");
     humanMessages.push_back("The sad thing about\nartificial intelligence is\nthat it lacks artifice and\ntherefore intelligence.\nJean Baudrillard");
+
 }
 
 void App::drawBoard(int x, int y){

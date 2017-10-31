@@ -47,8 +47,8 @@ void RunningState::draw(){
     Assets::getInstance()->font.drawString(s, 3* ofGetWidth() / 2 - boundingBox.width / 2, ofGetHeight() / 4);
 	
     
-    app->drawBoard(1080/2 - CELL_SIZE * 6, 1400);
-    app->drawBoard(3*1080/2 - CELL_SIZE * 6 , 1400);
+    app->drawBoard(1080/2 - CELL_SIZE * 6, 3*ofGetHeight() / 4 - CELL_SIZE * 3);
+    app->drawBoard(3*1080/2 - CELL_SIZE * 6, 3*ofGetHeight() / 4 - CELL_SIZE * 3);
 };
 
 void RunningState::update(){
