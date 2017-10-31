@@ -7,7 +7,6 @@
 !/bin/data/
 /bin/data/path.txt
 /bin/data/*.mp4
-/bin/data/assets/*
 /bin/data/log.txt
 
 #########
