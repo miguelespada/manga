@@ -6,8 +6,8 @@ Board::Board(){
         board[i] = Line();
     
     cursor = 0;
-    lastMachineActivity = -1;
     unsetHumanActivity();
+    unsetMachineActivity();
 }
 
 void Board::toggle(int j, int  i){
@@ -18,9 +18,22 @@ void Board::toggle(int j, int  i){
 void Board::set(int j, int i, bool v){
     if(board[j].get(i) != v){
         board[j].set(i, v);
+        
         if(j >= ROWS / 2)
             setHumanActivity();
+        else
+            setMachineActivity();
     }
+}
+
+
+void Board::setMachineActivity(){
+    lastMachineActivity = ofGetElapsedTimef();
+}
+
+void Board::unsetMachineActivity(){
+    lastMachineActivity = -1;
+    
 }
 
 void Board::setHumanActivity(){
@@ -56,7 +69,7 @@ void Board::draw(int x, int y){
     ofTranslate(anchor);
     for(int i = 0; i < ROWS; i++){
         board[i].draw();
-        ofDrawBitmapString(ofToString(Assets::getInstance()->getMidiNote(i, false)), 10, 25);
+       // ofDrawBitmapString(ofToString(Assets::getInstance()->getMidiNote(i, false)), 10, 25);
         ofTranslate(0, CELL_SIZE);
     }
     
@@ -146,7 +159,6 @@ vector<ofPoint> Board::fromPrediction(string values, bool bAutoUpdate){
             }
             
             if(bChanged){
-                lastMachineActivity = ofGetElapsedTimef();
                 changes.push_back(ofPoint(nRow, i));
             }
         }
@@ -171,7 +183,6 @@ vector<ofPoint> Board::changesToClean(bool bAutoUpdate){
             }
              
             if(bChanged){
-                lastMachineActivity = ofGetElapsedTimef();
                 changes.push_back(ofPoint(nRow, i));
             }
          }

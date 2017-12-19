@@ -17,7 +17,7 @@ void ofApp::setup(){
     
     serial = new SerialAdapter(app);
     midi = new MidiAdapter(app);
-  //  robot = new RobotAdapter(app);
+   //  robot = new RobotAdapter(app);
   //  predictor = new PredictorAdapter(app, robot);
     
     

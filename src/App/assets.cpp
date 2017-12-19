@@ -1,6 +1,9 @@
 #include "assets.h"
 
 void Assets::loadAssets(){
+    
+    loadImage(&eys, "eys.png");
+    loadImage(&jessica, "jessica.png");
 }
 
 

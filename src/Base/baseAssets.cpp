@@ -7,7 +7,7 @@ BaseAssets::BaseAssets(){
     settings.open(path);
     ofTrueTypeFont::setGlobalDpi(72);
     
-    font.loadFont("ProximaNova-Bold.otf", 128);
+    font.loadFont("ProximaNova-Bold.otf", 70);
 }
 
 

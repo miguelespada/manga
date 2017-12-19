@@ -9,7 +9,7 @@ CheckOnlineState::~CheckOnlineState(){
 };
 
 void CheckOnlineState::draw(){
-    ofBackground(0);
+    ofBackground(127);
     
     ofPushStyle();
     ofPushMatrix();
@@ -78,6 +78,7 @@ void CheckOnlineState::draw(){
     ofPopStyle();
     ofPopMatrix();
     
+//    Assets::getInstance()->jessica.draw(300, 100, 200, 150);
 };
 
 void CheckOnlineState::update(){

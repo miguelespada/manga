@@ -10,16 +10,24 @@ int main( ){
 	// can be OF_WINDOW or OF_FULLSCREEN
 	// pass in width and height too:
     
-    ofGLWindowSettings settings;
-    settings.width = 600;
-    settings.height = 600;
-    settings.setPosition(ofVec2f(0,0));
-    auto mainWindow = ofCreateWindow(settings);
-    auto mainApp = make_shared<ofApp>();
+//    ofGLWindowSettings settings;
+//    settings.width = 600;
+//    settings.height = 600;
+//    settings.setPosition(ofVec2f(0,0));
+//    
+//    auto mainWindow = ofCreateWindow(settings);
+//    auto mainApp = make_shared<ofApp>();
+//    
+//    
+//    ofRunApp(mainWindow, mainApp);
+//    ofRunMainLoop();
+//    
+//	ofRunApp(new ofApp());
+//    
+    ofSetupOpenGL(1024,768, OF_FULLSCREEN );			// <-------- setup the GL context
     
-    
-    ofRunApp(mainWindow, mainApp);
-    ofRunMainLoop();
-    
-	ofRunApp(new ofApp());
+    // this kicks off the running of my app
+    // can be OF_WINDOW or OF_FULLSCREEN
+    // pass in width and height too:
+    ofRunApp( new ofApp());
 }
