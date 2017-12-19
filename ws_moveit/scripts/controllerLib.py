@@ -54,7 +54,7 @@ def initRobot():
     print "Loading points"
     loadMatrix()
     print "Setting Scene"
-    setScene()
+   # setScene()
 
     print "Definning zeroPose"
     zeroPose = group.get_current_pose().pose
@@ -148,13 +148,14 @@ def loadMatrix():
 
 def loadExtraButtons():
     global extra1, extra2
-    extra1data = "0,0,0.2,0.22,0.010000,0.00500,0.007000"
+    extra1data = "0,0,0.2,0.22,0.010000,0.01600,0.007000"
     extra1 = Point()
     extra1.fromString(extra1data)
 
-    extra2data = "0,0,-0.2,-0.2,0.025000,0.04100,0.007000"
+    extra2data = "0,0,-0.2,-0.2,0.020000,0.05500,0.007000"
     extra2 = Point()
     extra2.fromString(extra2data)
+
 
 def goToPose(pose, step=0.05):
     waypoints = [group.get_current_pose().pose]
